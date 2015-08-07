@@ -1,0 +1,1459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="inventory_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="batch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SUPPLIER_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BATCH_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="NO_TYPE" Type="bigint" />
+          <Property Name="TOTAL_AMOUNT" Type="double" />
+          <Property Name="PAYMENT_STATUS" Type="tinyint" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="batch_vs_items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BATCH_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ITEM_CATEGORY_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="varchar" MaxLength="45" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="45" />
+          <Property Name="MODEL" Type="varchar" MaxLength="45" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="UNIT" Type="varchar" MaxLength="45" />
+          <Property Name="UNIT_COST" Type="double" />
+          <Property Name="UNIT_PRICE" Type="double" />
+          <Property Name="TYPE" Type="varchar" MaxLength="45" />
+          <Property Name="DEFECTS" Type="varchar" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
+          <Property Name="WARRANTY_PERIOD" Type="varchar" MaxLength="20" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="batch_vs_items_has_order">
+          <Key>
+            <PropertyRef Name="batch_vs_items_ID" />
+            <PropertyRef Name="order_ID" />
+          </Key>
+          <Property Name="batch_vs_items_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="order_ID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FNAME" Type="varchar" MaxLength="100" />
+          <Property Name="NNAME" Type="varchar" MaxLength="100" />
+          <Property Name="LNAME" Type="varchar" MaxLength="100" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="128" />
+          <Property Name="TELEPHONE" Type="varchar" MaxLength="12" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="STAFF_ID" Type="varchar" MaxLength="20" />
+          <Property Name="CUSTOMER_ID" Type="varchar" MaxLength="20" />
+          <Property Name="INVOICE_NO" Type="varchar" MaxLength="20" />
+          <Property Name="INVOICE_DATE" Type="date" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="SUB_TOTAL" Type="double" />
+          <Property Name="DISCOUNT" Type="double" />
+          <Property Name="NET_TOTAL" Type="double" />
+          <Property Name="TERMS" Type="varchar" MaxLength="255" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="item_category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ITEM_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="ITEM_TYPE" Type="varchar" MaxLength="45" />
+          <Property Name="STATUS" Type="tinyint" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="IS_PART" Type="int" />
+        </EntityType>
+        <EntityType Name="item_image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RETURNED_DETAILS_ID" Type="varchar" MaxLength="45" />
+          <Property Name="BATCH_VS_ITEMS_ID" Type="varchar" MaxLength="20" />
+          <Property Name="ITEMFILE_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="FILE_TYPE" Type="varchar" MaxLength="45" />
+          <Property Name="FILE_SIZE" Type="int" />
+          <Property Name="FILE_CONTENT" Type="mediumblob" />
+          <Property Name="SAVE" Type="bool" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ORDER_NO" Type="varchar" MaxLength="20" />
+          <Property Name="ORDER_DATE" Type="date" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="ORDER_STATUS" Type="tinyint" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="payments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="INVOICE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PAYMENT_NO" Type="varchar" MaxLength="20" />
+          <Property Name="AMOUNT" Type="double" />
+          <Property Name="PAYMENT_DATE" Type="date" />
+          <Property Name="METHOD" Type="varchar" MaxLength="45" />
+          <Property Name="PAYMENT_STATUS" Type="tinyint" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="returned_details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="ITEM_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RETURN_NO" Type="varchar" MaxLength="20" />
+          <Property Name="RETURNED_DATE" Type="date" />
+          <Property Name="STATUS" Type="tinyint" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="selling_item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BATCH_VS_ITEMS_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="INVOICE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="QR_CODE" Type="varchar" MaxLength="45" />
+          <Property Name="SERIAL_NO" Type="varchar" MaxLength="45" />
+          <Property Name="PRICE" Type="double" />
+          <Property Name="DISCOUNT" Type="double" />
+          <Property Name="SOLD PRICE" Type="double" />
+          <Property Name="STATUS" Type="tinyint" />
+          <Property Name="RETURN_STATUS" Type="int" />
+          <Property Name="RETURN_COMMENT" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMPLOYEE_NO" Type="varchar" MaxLength="20" />
+          <Property Name="STAFF_FNAME" Type="varchar" MaxLength="100" />
+          <Property Name="STAFF_MNAME" Type="varchar" MaxLength="100" />
+          <Property Name="STAFF_LNAME" Type="varchar" MaxLength="100" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="45" />
+          <Property Name="ROLE" Type="varchar" MaxLength="45" />
+          <Property Name="TELEPHONE" Type="varchar" MaxLength="12" />
+          <Property Name="TELEPHONE2" Type="varchar" MaxLength="12" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="128" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SUPPLIER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
+          <Property Name="TELEPHONE" Type="varchar" MaxLength="12" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="128" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="supplier_has_item_category">
+          <Key>
+            <PropertyRef Name="supplier_ID" />
+            <PropertyRef Name="item_category_ID" />
+          </Key>
+          <Property Name="supplier_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="item_category_ID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="supplier_payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BATCH_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AMOUNT" Type="double" />
+          <Property Name="SUP_PAYMNT_DATE" Type="date" />
+          <Property Name="METHOD" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="FK_PART_BATCH_ID" Type="varchar" MaxLength="20" />
+          <Property Name="COMMENT" Type="varchar" MaxLength="225" />
+          <Property Name="CHEQUE_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="warranty_details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SELLING_ITEM_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="WARRANTY_NO" Type="varchar" MaxLength="20" />
+          <Property Name="WARRANTY_PERIOD" Type="varchar" MaxLength="20" />
+          <Property Name="EXPIRATION_DATE" Type="date" />
+          <Property Name="INSERT_USER" Type="varchar" MaxLength="45" />
+          <Property Name="UPDATE_USER" Type="varchar" MaxLength="45" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="REMARK" Type="varchar" MaxLength="255" />
+          <Property Name="STATUS" Type="tinyint" />
+        </EntityType>
+        <Association Name="fk_batch_supplier1">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="batch" Type="Self.batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_batch_vs_items_batch1">
+          <End Role="batch" Type="Self.batch" Multiplicity="1" />
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch_vs_items">
+              <PropertyRef Name="BATCH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_batch_vs_items_has_order_batch_vs_items1">
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="1" />
+          <End Role="batch_vs_items_has_order" Type="Self.batch_vs_items_has_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch_vs_items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch_vs_items_has_order">
+              <PropertyRef Name="batch_vs_items_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_batch_vs_items_has_order_order1">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="batch_vs_items_has_order" Type="Self.batch_vs_items_has_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch_vs_items_has_order">
+              <PropertyRef Name="order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_batch_vs_items_item_category1">
+          <End Role="item_category" Type="Self.item_category" Multiplicity="1" />
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item_category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch_vs_items">
+              <PropertyRef Name="ITEM_CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_invoice_customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_invoice_staff1">
+          <End Role="staff" Type="Self.staff" Multiplicity="0..1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="STAFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_item_batch_vs_items1">
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="1" />
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch_vs_items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="selling_item">
+              <PropertyRef Name="BATCH_VS_ITEMS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_item_image_batch_vs_items1">
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="0..1" />
+          <End Role="item_image" Type="Self.item_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch_vs_items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="item_image">
+              <PropertyRef Name="BATCH_VS_ITEMS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_item_image_returned_details1">
+          <End Role="returned_details" Type="Self.returned_details" Multiplicity="0..1" />
+          <End Role="item_image" Type="Self.item_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="returned_details">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="item_image">
+              <PropertyRef Name="RETURNED_DETAILS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_order_customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_payments_invoice1">
+          <End Role="invoice" Type="Self.invoice" Multiplicity="1" />
+          <End Role="payments" Type="Self.payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="INVOICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_returned_details_item1">
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="1" />
+          <End Role="returned_details" Type="Self.returned_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="selling_item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="returned_details">
+              <PropertyRef Name="ITEM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_selling_item_invoice1">
+          <End Role="invoice" Type="Self.invoice" Multiplicity="1" />
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="selling_item">
+              <PropertyRef Name="INVOICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_supplier_has_item_category_item_category1">
+          <End Role="item_category" Type="Self.item_category" Multiplicity="1" />
+          <End Role="supplier_has_item_category" Type="Self.supplier_has_item_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item_category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="supplier_has_item_category">
+              <PropertyRef Name="item_category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_supplier_has_item_category_supplier1">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="supplier_has_item_category" Type="Self.supplier_has_item_category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="supplier_has_item_category">
+              <PropertyRef Name="supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_supplier_payment_batch1">
+          <End Role="batch" Type="Self.batch" Multiplicity="1" />
+          <End Role="supplier_payment" Type="Self.supplier_payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="supplier_payment">
+              <PropertyRef Name="BATCH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_warranty_details_item1">
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="1" />
+          <End Role="warranty_details" Type="Self.warranty_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="selling_item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="warranty_details">
+              <PropertyRef Name="SELLING_ITEM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventory_dbModelStoreContainer">
+          <EntitySet Name="batch" EntityType="Self.batch" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="batch_vs_items" EntityType="Self.batch_vs_items" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="batch_vs_items_has_order" EntityType="Self.batch_vs_items_has_order" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="invoice" EntityType="Self.invoice" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="item_category" EntityType="Self.item_category" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="item_image" EntityType="Self.item_image" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="payments" EntityType="Self.payments" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="returned_details" EntityType="Self.returned_details" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="selling_item" EntityType="Self.selling_item" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="staff" EntityType="Self.staff" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="supplier_has_item_category" EntityType="Self.supplier_has_item_category" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="supplier_payment" EntityType="Self.supplier_payment" Schema="inventory_db" store:Type="Tables" />
+          <EntitySet Name="warranty_details" EntityType="Self.warranty_details" Schema="inventory_db" store:Type="Tables" />
+          <AssociationSet Name="fk_batch_supplier1" Association="Self.fk_batch_supplier1">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="batch" EntitySet="batch" />
+          </AssociationSet>
+          <AssociationSet Name="fk_batch_vs_items_batch1" Association="Self.fk_batch_vs_items_batch1">
+            <End Role="batch" EntitySet="batch" />
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+          </AssociationSet>
+          <AssociationSet Name="fk_batch_vs_items_has_order_batch_vs_items1" Association="Self.fk_batch_vs_items_has_order_batch_vs_items1">
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+            <End Role="batch_vs_items_has_order" EntitySet="batch_vs_items_has_order" />
+          </AssociationSet>
+          <AssociationSet Name="fk_batch_vs_items_has_order_order1" Association="Self.fk_batch_vs_items_has_order_order1">
+            <End Role="order" EntitySet="order" />
+            <End Role="batch_vs_items_has_order" EntitySet="batch_vs_items_has_order" />
+          </AssociationSet>
+          <AssociationSet Name="fk_batch_vs_items_item_category1" Association="Self.fk_batch_vs_items_item_category1">
+            <End Role="item_category" EntitySet="item_category" />
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+          </AssociationSet>
+          <AssociationSet Name="fk_invoice_customer1" Association="Self.fk_invoice_customer1">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_invoice_staff1" Association="Self.fk_invoice_staff1">
+            <End Role="staff" EntitySet="staff" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_item_batch_vs_items1" Association="Self.fk_item_batch_vs_items1">
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+            <End Role="selling_item" EntitySet="selling_item" />
+          </AssociationSet>
+          <AssociationSet Name="fk_item_image_batch_vs_items1" Association="Self.fk_item_image_batch_vs_items1">
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+            <End Role="item_image" EntitySet="item_image" />
+          </AssociationSet>
+          <AssociationSet Name="fk_item_image_returned_details1" Association="Self.fk_item_image_returned_details1">
+            <End Role="returned_details" EntitySet="returned_details" />
+            <End Role="item_image" EntitySet="item_image" />
+          </AssociationSet>
+          <AssociationSet Name="fk_order_customer1" Association="Self.fk_order_customer1">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="fk_payments_invoice1" Association="Self.fk_payments_invoice1">
+            <End Role="invoice" EntitySet="invoice" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_returned_details_item1" Association="Self.fk_returned_details_item1">
+            <End Role="selling_item" EntitySet="selling_item" />
+            <End Role="returned_details" EntitySet="returned_details" />
+          </AssociationSet>
+          <AssociationSet Name="fk_selling_item_invoice1" Association="Self.fk_selling_item_invoice1">
+            <End Role="invoice" EntitySet="invoice" />
+            <End Role="selling_item" EntitySet="selling_item" />
+          </AssociationSet>
+          <AssociationSet Name="fk_supplier_has_item_category_item_category1" Association="Self.fk_supplier_has_item_category_item_category1">
+            <End Role="item_category" EntitySet="item_category" />
+            <End Role="supplier_has_item_category" EntitySet="supplier_has_item_category" />
+          </AssociationSet>
+          <AssociationSet Name="fk_supplier_has_item_category_supplier1" Association="Self.fk_supplier_has_item_category_supplier1">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="supplier_has_item_category" EntitySet="supplier_has_item_category" />
+          </AssociationSet>
+          <AssociationSet Name="fk_supplier_payment_batch1" Association="Self.fk_supplier_payment_batch1">
+            <End Role="batch" EntitySet="batch" />
+            <End Role="supplier_payment" EntitySet="supplier_payment" />
+          </AssociationSet>
+          <AssociationSet Name="fk_warranty_details_item1" Association="Self.fk_warranty_details_item1">
+            <End Role="selling_item" EntitySet="selling_item" />
+            <End Role="warranty_details" EntitySet="warranty_details" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inventory_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="batch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUPPLIER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BATCH_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NO_TYPE" Type="Int64" />
+          <Property Name="TOTAL_AMOUNT" Type="Double" />
+          <Property Name="PAYMENT_STATUS" Type="SByte" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="supplier" Relationship="Self.fk_batch_supplier1" FromRole="batch" ToRole="supplier" />
+          <NavigationProperty Name="batch_vs_items" Relationship="Self.fk_batch_vs_items_batch1" FromRole="batch" ToRole="batch_vs_items" />
+          <NavigationProperty Name="supplier_payment" Relationship="Self.fk_supplier_payment_batch1" FromRole="batch" ToRole="supplier_payment" />
+        </EntityType>
+        <EntityType Name="batch_vs_items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BATCH_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ITEM_CATEGORY_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="MODEL" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT_COST" Type="Double" />
+          <Property Name="UNIT_PRICE" Type="Double" />
+          <Property Name="TYPE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DEFECTS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WARRANTY_PERIOD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="batch" Relationship="Self.fk_batch_vs_items_batch1" FromRole="batch_vs_items" ToRole="batch" />
+          <NavigationProperty Name="item_category" Relationship="Self.fk_batch_vs_items_item_category1" FromRole="batch_vs_items" ToRole="item_category" />
+          <NavigationProperty Name="selling_item" Relationship="Self.fk_item_batch_vs_items1" FromRole="batch_vs_items" ToRole="selling_item" />
+          <NavigationProperty Name="item_image" Relationship="Self.fk_item_image_batch_vs_items1" FromRole="batch_vs_items" ToRole="item_image" />
+          <NavigationProperty Name="orders" Relationship="Self.batch_vs_items_has_order" FromRole="batch_vs_items" ToRole="order" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="invoices" Relationship="Self.fk_invoice_customer1" FromRole="customer" ToRole="invoice" />
+          <NavigationProperty Name="orders" Relationship="Self.fk_order_customer1" FromRole="customer" ToRole="order" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STAFF_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="INVOICE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="INVOICE_DATE" Type="DateTime" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="SUB_TOTAL" Type="Double" />
+          <Property Name="DISCOUNT" Type="Double" />
+          <Property Name="NET_TOTAL" Type="Double" />
+          <Property Name="TERMS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="customer" Relationship="Self.fk_invoice_customer1" FromRole="invoice" ToRole="customer" />
+          <NavigationProperty Name="staff" Relationship="Self.fk_invoice_staff1" FromRole="invoice" ToRole="staff" />
+          <NavigationProperty Name="payments" Relationship="Self.fk_payments_invoice1" FromRole="invoice" ToRole="payments" />
+          <NavigationProperty Name="selling_item" Relationship="Self.fk_selling_item_invoice1" FromRole="invoice" ToRole="selling_item" />
+        </EntityType>
+        <EntityType Name="item_category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ITEM_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM_TYPE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IS_PART" Type="Int32" />
+          <NavigationProperty Name="batch_vs_items" Relationship="Self.fk_batch_vs_items_item_category1" FromRole="item_category" ToRole="batch_vs_items" />
+          <NavigationProperty Name="suppliers" Relationship="Self.supplier_has_item_category" FromRole="item_category" ToRole="supplier" />
+        </EntityType>
+        <EntityType Name="item_image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RETURNED_DETAILS_ID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="BATCH_VS_ITEMS_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ITEMFILE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_TYPE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_SIZE" Type="Int32" />
+          <Property Name="FILE_CONTENT" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SAVE" Type="Boolean" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="batch_vs_items" Relationship="Self.fk_item_image_batch_vs_items1" FromRole="item_image" ToRole="batch_vs_items" />
+          <NavigationProperty Name="returned_details" Relationship="Self.fk_item_image_returned_details1" FromRole="item_image" ToRole="returned_details" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ORDER_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER_DATE" Type="DateTime" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="ORDER_STATUS" Type="SByte" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="customer" Relationship="Self.fk_order_customer1" FromRole="order" ToRole="customer" />
+          <NavigationProperty Name="batch_vs_items" Relationship="Self.batch_vs_items_has_order" FromRole="order" ToRole="batch_vs_items" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INVOICE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAYMENT_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AMOUNT" Type="Double" />
+          <Property Name="PAYMENT_DATE" Type="DateTime" />
+          <Property Name="METHOD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PAYMENT_STATUS" Type="SByte" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="invoice" Relationship="Self.fk_payments_invoice1" FromRole="payments" ToRole="invoice" />
+        </EntityType>
+        <EntityType Name="returned_details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ITEM_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RETURN_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RETURNED_DATE" Type="DateTime" />
+          <Property Name="STATUS" Type="SByte" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="item_image" Relationship="Self.fk_item_image_returned_details1" FromRole="returned_details" ToRole="item_image" />
+          <NavigationProperty Name="selling_item" Relationship="Self.fk_returned_details_item1" FromRole="returned_details" ToRole="selling_item" />
+        </EntityType>
+        <EntityType Name="selling_item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BATCH_VS_ITEMS_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INVOICE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QR_CODE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_NO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="Double" />
+          <Property Name="DISCOUNT" Type="Double" />
+          <Property Name="SOLD_PRICE" Type="Double" />
+          <Property Name="STATUS" Type="SByte" />
+          <Property Name="RETURN_STATUS" Type="Int32" />
+          <Property Name="RETURN_COMMENT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="batch_vs_items" Relationship="Self.fk_item_batch_vs_items1" FromRole="selling_item" ToRole="batch_vs_items" />
+          <NavigationProperty Name="invoice" Relationship="Self.fk_selling_item_invoice1" FromRole="selling_item" ToRole="invoice" />
+          <NavigationProperty Name="returned_details" Relationship="Self.fk_returned_details_item1" FromRole="selling_item" ToRole="returned_details" />
+          <NavigationProperty Name="warranty_details" Relationship="Self.fk_warranty_details_item1" FromRole="selling_item" ToRole="warranty_details" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPLOYEE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="STAFF_FNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STAFF_MNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STAFF_LNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ROLE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARKS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="invoices" Relationship="Self.fk_invoice_staff1" FromRole="staff" ToRole="invoice" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUPPLIER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="batches" Relationship="Self.fk_batch_supplier1" FromRole="supplier" ToRole="batch" />
+          <NavigationProperty Name="item_category" Relationship="Self.supplier_has_item_category" FromRole="supplier" ToRole="item_category" />
+        </EntityType>
+        <EntityType Name="supplier_payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BATCH_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AMOUNT" Type="Double" />
+          <Property Name="SUP_PAYMNT_DATE" Type="DateTime" />
+          <Property Name="METHOD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_PART_BATCH_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+          <Property Name="CHEQUE_DATE" Type="DateTime" />
+          <NavigationProperty Name="batch" Relationship="Self.fk_supplier_payment_batch1" FromRole="supplier_payment" ToRole="batch" />
+        </EntityType>
+        <EntityType Name="warranty_details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SELLING_ITEM_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WARRANTY_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WARRANTY_PERIOD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EXPIRATION_DATE" Type="DateTime" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="SByte" />
+          <NavigationProperty Name="selling_item" Relationship="Self.fk_warranty_details_item1" FromRole="warranty_details" ToRole="selling_item" />
+        </EntityType>
+        <Association Name="fk_batch_supplier1">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="batch" Type="Self.batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_batch_vs_items_batch1">
+          <End Role="batch" Type="Self.batch" Multiplicity="1" />
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch_vs_items">
+              <PropertyRef Name="BATCH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_supplier_payment_batch1">
+          <End Role="batch" Type="Self.batch" Multiplicity="1" />
+          <End Role="supplier_payment" Type="Self.supplier_payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="supplier_payment">
+              <PropertyRef Name="BATCH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_batch_vs_items_item_category1">
+          <End Role="item_category" Type="Self.item_category" Multiplicity="1" />
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item_category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="batch_vs_items">
+              <PropertyRef Name="ITEM_CATEGORY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_item_batch_vs_items1">
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="1" />
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch_vs_items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="selling_item">
+              <PropertyRef Name="BATCH_VS_ITEMS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_item_image_batch_vs_items1">
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="0..1" />
+          <End Role="item_image" Type="Self.item_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch_vs_items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="item_image">
+              <PropertyRef Name="BATCH_VS_ITEMS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_invoice_customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_order_customer1">
+          <End Role="customer" Type="Self.customer" Multiplicity="1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_invoice_staff1">
+          <End Role="staff" Type="Self.staff" Multiplicity="0..1" />
+          <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="STAFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_payments_invoice1">
+          <End Role="invoice" Type="Self.invoice" Multiplicity="1" />
+          <End Role="payments" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="INVOICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_selling_item_invoice1">
+          <End Role="invoice" Type="Self.invoice" Multiplicity="1" />
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="selling_item">
+              <PropertyRef Name="INVOICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_item_image_returned_details1">
+          <End Role="returned_details" Type="Self.returned_details" Multiplicity="0..1" />
+          <End Role="item_image" Type="Self.item_image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="returned_details">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="item_image">
+              <PropertyRef Name="RETURNED_DETAILS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_returned_details_item1">
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="1" />
+          <End Role="returned_details" Type="Self.returned_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="selling_item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="returned_details">
+              <PropertyRef Name="ITEM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_warranty_details_item1">
+          <End Role="selling_item" Type="Self.selling_item" Multiplicity="1" />
+          <End Role="warranty_details" Type="Self.warranty_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="selling_item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="warranty_details">
+              <PropertyRef Name="SELLING_ITEM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="batch_vs_items_has_order">
+          <End Role="batch_vs_items" Type="Self.batch_vs_items" Multiplicity="*" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+        </Association>
+        <Association Name="supplier_has_item_category">
+          <End Role="item_category" Type="Self.item_category" Multiplicity="*" />
+          <End Role="supplier" Type="Self.supplier" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="inventory_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="batches" EntityType="Self.batch" />
+          <EntitySet Name="batch_vs_items" EntityType="Self.batch_vs_items" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="invoices" EntityType="Self.invoice" />
+          <EntitySet Name="item_category" EntityType="Self.item_category" />
+          <EntitySet Name="item_image" EntityType="Self.item_image" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="returned_details" EntityType="Self.returned_details" />
+          <EntitySet Name="selling_item" EntityType="Self.selling_item" />
+          <EntitySet Name="staffs" EntityType="Self.staff" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="supplier_payment" EntityType="Self.supplier_payment" />
+          <EntitySet Name="warranty_details" EntityType="Self.warranty_details" />
+          <AssociationSet Name="fk_batch_supplier1" Association="Self.fk_batch_supplier1">
+            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="batch" EntitySet="batches" />
+          </AssociationSet>
+          <AssociationSet Name="fk_batch_vs_items_batch1" Association="Self.fk_batch_vs_items_batch1">
+            <End Role="batch" EntitySet="batches" />
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+          </AssociationSet>
+          <AssociationSet Name="fk_supplier_payment_batch1" Association="Self.fk_supplier_payment_batch1">
+            <End Role="batch" EntitySet="batches" />
+            <End Role="supplier_payment" EntitySet="supplier_payment" />
+          </AssociationSet>
+          <AssociationSet Name="fk_batch_vs_items_item_category1" Association="Self.fk_batch_vs_items_item_category1">
+            <End Role="item_category" EntitySet="item_category" />
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+          </AssociationSet>
+          <AssociationSet Name="fk_item_batch_vs_items1" Association="Self.fk_item_batch_vs_items1">
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+            <End Role="selling_item" EntitySet="selling_item" />
+          </AssociationSet>
+          <AssociationSet Name="fk_item_image_batch_vs_items1" Association="Self.fk_item_image_batch_vs_items1">
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+            <End Role="item_image" EntitySet="item_image" />
+          </AssociationSet>
+          <AssociationSet Name="fk_invoice_customer1" Association="Self.fk_invoice_customer1">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="invoice" EntitySet="invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_order_customer1" Association="Self.fk_order_customer1">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_invoice_staff1" Association="Self.fk_invoice_staff1">
+            <End Role="staff" EntitySet="staffs" />
+            <End Role="invoice" EntitySet="invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_payments_invoice1" Association="Self.fk_payments_invoice1">
+            <End Role="invoice" EntitySet="invoices" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_selling_item_invoice1" Association="Self.fk_selling_item_invoice1">
+            <End Role="invoice" EntitySet="invoices" />
+            <End Role="selling_item" EntitySet="selling_item" />
+          </AssociationSet>
+          <AssociationSet Name="fk_item_image_returned_details1" Association="Self.fk_item_image_returned_details1">
+            <End Role="returned_details" EntitySet="returned_details" />
+            <End Role="item_image" EntitySet="item_image" />
+          </AssociationSet>
+          <AssociationSet Name="fk_returned_details_item1" Association="Self.fk_returned_details_item1">
+            <End Role="selling_item" EntitySet="selling_item" />
+            <End Role="returned_details" EntitySet="returned_details" />
+          </AssociationSet>
+          <AssociationSet Name="fk_warranty_details_item1" Association="Self.fk_warranty_details_item1">
+            <End Role="selling_item" EntitySet="selling_item" />
+            <End Role="warranty_details" EntitySet="warranty_details" />
+          </AssociationSet>
+          <AssociationSet Name="batch_vs_items_has_order" Association="Self.batch_vs_items_has_order">
+            <End Role="batch_vs_items" EntitySet="batch_vs_items" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="supplier_has_item_category" Association="Self.supplier_has_item_category">
+            <End Role="item_category" EntitySet="item_category" />
+            <End Role="supplier" EntitySet="suppliers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inventory_dbModelStoreContainer" CdmEntityContainer="inventory_dbEntities">
+          <EntitySetMapping Name="batches">
+            <EntityTypeMapping TypeName="inventory_dbModel.batch">
+              <MappingFragment StoreEntitySet="batch">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SUPPLIER_ID" ColumnName="SUPPLIER_ID" />
+                <ScalarProperty Name="BATCH_NAME" ColumnName="BATCH_NAME" />
+                <ScalarProperty Name="NO_TYPE" ColumnName="NO_TYPE" />
+                <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+                <ScalarProperty Name="PAYMENT_STATUS" ColumnName="PAYMENT_STATUS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="batch_vs_items">
+            <EntityTypeMapping TypeName="inventory_dbModel.batch_vs_items">
+              <MappingFragment StoreEntitySet="batch_vs_items">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BATCH_ID" ColumnName="BATCH_ID" />
+                <ScalarProperty Name="ITEM_CATEGORY_ID" ColumnName="ITEM_CATEGORY_ID" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="UNIT_COST" ColumnName="UNIT_COST" />
+                <ScalarProperty Name="UNIT_PRICE" ColumnName="UNIT_PRICE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="DEFECTS" ColumnName="DEFECTS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="WARRANTY_PERIOD" ColumnName="WARRANTY_PERIOD" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="inventory_dbModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="NNAME" ColumnName="NNAME" />
+                <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invoices">
+            <EntityTypeMapping TypeName="inventory_dbModel.invoice">
+              <MappingFragment StoreEntitySet="invoice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="INVOICE_NO" ColumnName="INVOICE_NO" />
+                <ScalarProperty Name="INVOICE_DATE" ColumnName="INVOICE_DATE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="SUB_TOTAL" ColumnName="SUB_TOTAL" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="NET_TOTAL" ColumnName="NET_TOTAL" />
+                <ScalarProperty Name="TERMS" ColumnName="TERMS" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item_category">
+            <EntityTypeMapping TypeName="inventory_dbModel.item_category">
+              <MappingFragment StoreEntitySet="item_category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ITEM_NAME" ColumnName="ITEM_NAME" />
+                <ScalarProperty Name="ITEM_TYPE" ColumnName="ITEM_TYPE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="IS_PART" ColumnName="IS_PART" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item_image">
+            <EntityTypeMapping TypeName="inventory_dbModel.item_image">
+              <MappingFragment StoreEntitySet="item_image">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RETURNED_DETAILS_ID" ColumnName="RETURNED_DETAILS_ID" />
+                <ScalarProperty Name="BATCH_VS_ITEMS_ID" ColumnName="BATCH_VS_ITEMS_ID" />
+                <ScalarProperty Name="ITEMFILE_NAME" ColumnName="ITEMFILE_NAME" />
+                <ScalarProperty Name="FILE_TYPE" ColumnName="FILE_TYPE" />
+                <ScalarProperty Name="FILE_SIZE" ColumnName="FILE_SIZE" />
+                <ScalarProperty Name="FILE_CONTENT" ColumnName="FILE_CONTENT" />
+                <ScalarProperty Name="SAVE" ColumnName="SAVE" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="inventory_dbModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="ORDER_NO" ColumnName="ORDER_NO" />
+                <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="ORDER_STATUS" ColumnName="ORDER_STATUS" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="inventory_dbModel.payment">
+              <MappingFragment StoreEntitySet="payments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="INVOICE_ID" ColumnName="INVOICE_ID" />
+                <ScalarProperty Name="PAYMENT_NO" ColumnName="PAYMENT_NO" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="PAYMENT_DATE" ColumnName="PAYMENT_DATE" />
+                <ScalarProperty Name="METHOD" ColumnName="METHOD" />
+                <ScalarProperty Name="PAYMENT_STATUS" ColumnName="PAYMENT_STATUS" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="returned_details">
+            <EntityTypeMapping TypeName="inventory_dbModel.returned_details">
+              <MappingFragment StoreEntitySet="returned_details">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ITEM_ID" ColumnName="ITEM_ID" />
+                <ScalarProperty Name="RETURN_NO" ColumnName="RETURN_NO" />
+                <ScalarProperty Name="RETURNED_DATE" ColumnName="RETURNED_DATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="selling_item">
+            <EntityTypeMapping TypeName="inventory_dbModel.selling_item">
+              <MappingFragment StoreEntitySet="selling_item">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BATCH_VS_ITEMS_ID" ColumnName="BATCH_VS_ITEMS_ID" />
+                <ScalarProperty Name="INVOICE_ID" ColumnName="INVOICE_ID" />
+                <ScalarProperty Name="QR_CODE" ColumnName="QR_CODE" />
+                <ScalarProperty Name="SERIAL_NO" ColumnName="SERIAL_NO" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="SOLD_PRICE" ColumnName="SOLD PRICE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="RETURN_STATUS" ColumnName="RETURN_STATUS" />
+                <ScalarProperty Name="RETURN_COMMENT" ColumnName="RETURN_COMMENT" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staffs">
+            <EntityTypeMapping TypeName="inventory_dbModel.staff">
+              <MappingFragment StoreEntitySet="staff">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMPLOYEE_NO" ColumnName="EMPLOYEE_NO" />
+                <ScalarProperty Name="STAFF_FNAME" ColumnName="STAFF_FNAME" />
+                <ScalarProperty Name="STAFF_MNAME" ColumnName="STAFF_MNAME" />
+                <ScalarProperty Name="STAFF_LNAME" ColumnName="STAFF_LNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="TELEPHONE2" ColumnName="TELEPHONE2" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="inventory_dbModel.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="supplier_payment">
+            <EntityTypeMapping TypeName="inventory_dbModel.supplier_payment">
+              <MappingFragment StoreEntitySet="supplier_payment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BATCH_ID" ColumnName="BATCH_ID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="SUP_PAYMNT_DATE" ColumnName="SUP_PAYMNT_DATE" />
+                <ScalarProperty Name="METHOD" ColumnName="METHOD" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="FK_PART_BATCH_ID" ColumnName="FK_PART_BATCH_ID" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="CHEQUE_DATE" ColumnName="CHEQUE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warranty_details">
+            <EntityTypeMapping TypeName="inventory_dbModel.warranty_details">
+              <MappingFragment StoreEntitySet="warranty_details">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SELLING_ITEM_ID" ColumnName="SELLING_ITEM_ID" />
+                <ScalarProperty Name="WARRANTY_NO" ColumnName="WARRANTY_NO" />
+                <ScalarProperty Name="WARRANTY_PERIOD" ColumnName="WARRANTY_PERIOD" />
+                <ScalarProperty Name="EXPIRATION_DATE" ColumnName="EXPIRATION_DATE" />
+                <ScalarProperty Name="INSERT_USER" ColumnName="INSERT_USER" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="INSERT_DATE_TIME" ColumnName="INSERT_DATE_TIME" />
+                <ScalarProperty Name="UPDATE_DATE_TIME" ColumnName="UPDATE_DATE_TIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="batch_vs_items_has_order" TypeName="inventory_dbModel.batch_vs_items_has_order" StoreEntitySet="batch_vs_items_has_order">
+            <EndProperty Name="batch_vs_items">
+              <ScalarProperty Name="ID" ColumnName="batch_vs_items_ID" />
+            </EndProperty>
+            <EndProperty Name="order">
+              <ScalarProperty Name="ID" ColumnName="order_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="supplier_has_item_category" TypeName="inventory_dbModel.supplier_has_item_category" StoreEntitySet="supplier_has_item_category">
+            <EndProperty Name="item_category">
+              <ScalarProperty Name="ID" ColumnName="item_category_ID" />
+            </EndProperty>
+            <EndProperty Name="supplier">
+              <ScalarProperty Name="ID" ColumnName="supplier_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
