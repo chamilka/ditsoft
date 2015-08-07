@@ -8,33 +8,19 @@ namespace DoerITSoftware.Core.Fleet
 {
     interface Vehicle:BaseEntity
     {
-        protected void setRegistrationNumber(string registrationNumber);
-        protected void setCategory(string category);
-        protected void setType(string type);
-        protected void setMake(string make);
-        protected void setModel(string model);
-        protected void setFuelType(string fuelType);
-        protected void setEngineNumber(string engineNumber);
-        protected void setChassisNumber(string chassisNumber);
-        protected void setYearManufacture(string yearManufacture);
-        protected void setDateImport(string dateImport);
-        protected void setDateRegistered(string dateRegistered);
-        protected void setRegistrationCertificate(byte[] registrationCertificate);
-        protected void setNumWheels(Nullable<sbyte> numWheels);
-        protected void setDescription(string description);
-        protected string getRegistrationNumber();
-        protected string getCategory();
-        protected string getType();
-        protected string getMake();
-        protected string getModel();
-        protected string getFuelType();
-        protected string getEngineNumber();
-        protected string getChassisNumber();
-        protected string getYearManufacture();
-        protected string getDateImport();
-        protected string getDateRegistered();
-        protected byte[] getRegistrationCertificate();
-        protected Nullable<sbyte> getNumWheels();
-        protected string getDescription(string description);
+        public string RegistrationNumber { get; }
+        public string Make { get; }
+        public string Model { get; }
+        public string FuelType { get; }
+        public string YearManufacture { get; }
+        public string Description { get; }
+        public virtual ICollection<Drive> Drive { get; }
+        public virtual ICollection<Expense> Expense { get; }
+        public virtual ICollection<Fuel> Fuel { get; }
+        public virtual ICollection<Insurance> Insurance { get; }
+        public virtual ICollection<License> License { get; }
+        public virtual ICollection<Repair> Repair { get; }
+        public virtual ICollection<VehicleImage> VehicleImage { get; }
+        public virtual ICollection<VehicleTire> VehicleTire { get; }
     }
 }
