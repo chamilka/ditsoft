@@ -11,9 +11,8 @@ namespace DoerITSoftware.Fleet.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     
-    public partial class Vehicle:INotifyPropertyChanged
+    public partial class Vehicle
     {
     	public Vehicle()
         {
@@ -27,6 +26,7 @@ namespace DoerITSoftware.Fleet.Model
     		this.VehicleTire = new HashSet<VehicleTire>();
     		this.VehicleImage = new HashSet<VehicleImage>();
         }
+    
         public string Id { get; set; }
         public string RegistrationNumber { get; set; }
         public string Category { get; set; }
@@ -57,12 +57,5 @@ namespace DoerITSoftware.Fleet.Model
         public virtual ICollection<Repair> Repair { get; set; }
         public virtual ICollection<VehicleTire> VehicleTire { get; set; }
         public virtual ICollection<VehicleImage> VehicleImage { get; set; }
-
-
-        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
-        {
-            add { throw new NotImplementedException(); }
-            remove { throw new NotImplementedException(); }
-        }
     }
 }
