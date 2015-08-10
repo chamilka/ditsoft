@@ -33,12 +33,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -52,12 +54,108 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Fleet\BaseEntity.cs" />
-    <Compile Include="Core\Fleet\Service.cs" />
+    <Compile Include="Core\Fleet\TaskSparePart.cs" />
+    <Compile Include="Core\Fleet\MaintenanceTask.cs" />
+    <Compile Include="Core\Fleet\Maintenance.cs" />
+    <Compile Include="Core\Fleet\VehicleTire.cs" />
+    <Compile Include="Core\Fleet\VehicleImage.cs" />
+    <Compile Include="Core\Fleet\Tire.cs" />
+    <Compile Include="Core\Fleet\Task.cs" />
+    <Compile Include="Core\Fleet\SupplierTire.cs" />
+    <Compile Include="Core\Fleet\SupplierSparePart.cs" />
+    <Compile Include="Core\Fleet\Supplier.cs" />
+    <Compile Include="Core\Fleet\SparePart.cs" />
+    <Compile Include="Core\Fleet\Repair.cs" />
+    <Compile Include="Core\Fleet\Place.cs" />
+    <Compile Include="Core\Fleet\License.cs" />
+    <Compile Include="Core\Fleet\Insurance.cs" />
+    <Compile Include="Core\Fleet\Fuel.cs" />
+    <Compile Include="Core\Fleet\Expense.cs" />
+    <Compile Include="Core\Fleet\Driver.cs" />
+    <Compile Include="Core\Fleet\Drive.cs" />
     <Compile Include="Core\Fleet\Service\GenericService.cs" />
     <Compile Include="Core\Fleet\Service\VehicleService.cs" />
     <Compile Include="Core\Fleet\Vehicle.cs" />
+    <Compile Include="Fleet\Model\Drive.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Driver.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Expense.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\FleetModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FleetModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\FleetModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\FleetModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FleetModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Fuel.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Insurance.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\License.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Maintenance.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\MaintenanceTask.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Place.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fleet\Model\Repair.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\RepairSparePart.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\SparePart.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Supplier.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\SupplierSparePart.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\SupplierTire.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Task.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\TaskSparePart.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Tire.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\Vehicle.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\VehicleImage.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet\Model\VehicleTire.cs">
+      <DependentUpon>FleetModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -67,6 +165,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Fleet\Model\FleetModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FleetModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Fleet\Model\FleetModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FleetModel.edmx</DependentUpon>
+      <LastGenOutput>FleetModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Fleet\Model\FleetModel.edmx.diagram">
+      <DependentUpon>FleetModel.edmx</DependentUpon>
+    </None>
+    <None Include="Fleet\Model\FleetModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FleetModel.edmx</DependentUpon>
+      <LastGenOutput>FleetModel.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,10 +194,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fleet\Service\" />
+    <Folder Include="Fleet\ViewModel\" />
+    <Folder Include="Fleet\View\Wpf\Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
