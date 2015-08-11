@@ -12,22 +12,22 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class payment
+    public partial class Payment
     {
-        public string ID { get; set; }
-        public string INVOICE_ID { get; set; }
-        public string PAYMENT_NO { get; set; }
-        public Nullable<double> AMOUNT { get; set; }
-        public Nullable<System.DateTime> PAYMENT_DATE { get; set; }
-        public string METHOD { get; set; }
-        public Nullable<sbyte> PAYMENT_STATUS { get; set; }
-        public string INSERT_USER { get; set; }
-        public string UPDATE_USER { get; set; }
-        public Nullable<System.DateTime> INSERT_DATE_TIME { get; set; }
-        public Nullable<System.DateTime> UPDATE_DATE_TIME { get; set; }
-        public string REMARK { get; set; }
-        public Nullable<sbyte> STATUS { get; set; }
+        public string Id { get; set; }
+        public string InvoiceId { get; set; }
+        public string PaymentNo { get; set; }
+        public Nullable<double> Amount { get; set; }
+        public Nullable<System.DateTime> PaymentDate { get; set; }
+        public string Method { get; set; }
+        public Nullable<sbyte> PaymentStatus { get; set; }
+        public string InsertUser { get; set; }
+        public string UpdateUser { get; set; }
+        public Nullable<System.DateTime> InsertDateTime { get; set; }
+        public Nullable<System.DateTime> UpdateDateTime { get; set; }
+        public string Remark { get; set; }
+        public Nullable<sbyte> Status { get; set; }
     
-        public virtual invoice invoice { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 }

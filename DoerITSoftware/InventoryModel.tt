@@ -20,7 +20,7 @@ WriteHeader(codeStringGenerator, fileManager);
 
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
 {
-    fileManager.StartNewFile(entity.Name + ".cs");
+    fileManager.StartNewFile(PascalCase(entity.Name) + ".cs");
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false)#>
@@ -35,7 +35,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     {
 #>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public <#=code.Escape(entity)#>()
+    public <#=code.Escape(PascalCase(entity.Name.Substring(entity.Name.IndexOf("_")+1)))#>()
     {
 <#
         foreach (var edmProperty in propertiesWithDefaultValues)
@@ -48,7 +48,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         foreach (var navigationProperty in collectionNavigationProperties)
         {
 #>
-        this.<#=code.Escape(navigationProperty)#> = new HashSet<<#=typeMapper.GetTypeName(navigationProperty.ToEndMember.GetEntityType())#>>();
+        this.<#=code.Escape(PascalCase(navigationProperty))#> = new HashSet<<#=PascalCase(typeMapper.GetTypeName(navigationProperty.ToEndMember.GetEntityType()))#>>();
 <#
         }
 
@@ -262,6 +262,59 @@ public void EndNamespace(CodeGenerationTools code)
     }
 }
 
+public string PascalCase(StructuralType type)
+{
+    if (type == null)
+    {
+        return null;
+    }
+
+    return PascalCase(type.Name);
+}
+
+public string PascalCase(EdmMember member)
+{
+    if (member == null)
+    {
+        return null;
+    }
+
+    return PascalCase(member.Name);
+}
+
+private string PascalCase(string name)
+{
+    name = name.ToLowerInvariant();
+	if(name.IndexOf("vrs_")>-1){
+		name = name.Substring(name.IndexOf("_")+1);
+	}
+    string result = name;
+    bool upperCase = false;
+
+    result = string.Empty;
+    for (int i = 0; i < name.Length; i++)
+    {
+        if (name[i] == ' ' || name[i] == '_')
+        {
+            upperCase = true;
+        }
+        else
+        {
+            if (i == 0 || upperCase)
+            {
+                result += name[i].ToString().ToUpperInvariant();
+                upperCase = false;
+            }
+            else
+            {
+                result += name[i];
+            }
+        }
+    }
+
+    return result;
+}
+
 public const string TemplateId = "CSharp_DbContext_Types_EF6";
 
 public class CodeStringGenerator
@@ -288,7 +341,7 @@ public class CodeStringGenerator
             "{0} {1} {2} {{ {3}get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
             _typeMapper.GetTypeName(edmProperty.TypeUsage),
-            _code.Escape(edmProperty),
+            _code.Escape(PascalCase(edmProperty)),
             _code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
             _code.SpaceAfter(Accessibility.ForSetter(edmProperty)));
     }
@@ -300,8 +353,8 @@ public class CodeStringGenerator
             CultureInfo.InvariantCulture,
             "{0} {1} {2} {{ {3}get; {4}set; }}",
             AccessibilityAndVirtual(Accessibility.ForNavigationProperty(navProp)),
-            navProp.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? ("ICollection<" + endType + ">") : endType,
-            _code.Escape(navProp),
+            navProp.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? ("ICollection<" + PascalCase(endType) + ">") : PascalCase(endType),
+            _code.Escape(PascalCase(navProp)),
             _code.SpaceAfter(Accessibility.ForGetter(navProp)),
             _code.SpaceAfter(Accessibility.ForSetter(navProp)));
     }
@@ -318,7 +371,7 @@ public class CodeStringGenerator
             "{0} {1}partial class {2}{3}",
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
-            _code.Escape(entity),
+            _code.Escape(PascalCase(entity)),
             _code.StringBefore(" : ", _typeMapper.GetTypeName(entity.BaseType)));
     }
     
@@ -431,6 +484,59 @@ public class CodeStringGenerator
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
                 inHeader ? "" : Environment.NewLine)
             : "";
+    }
+
+	public string PascalCase(StructuralType type)
+    {
+        if (type == null)
+        {
+            return null;
+        }
+
+        return PascalCase(type.Name);
+    }
+
+    public string PascalCase(EdmMember member)
+    {
+        if (member == null)
+        {
+            return null;
+        }
+
+        return PascalCase(member.Name);
+    }
+
+    private string PascalCase(string name)
+    {
+        name = name.ToLowerInvariant();
+		if(name.IndexOf("vrs_")>-1){
+			name = name.Substring(name.IndexOf("_")+1);
+		}
+        string result = name;
+        bool upperCase = false;
+
+        result = string.Empty;
+        for (int i = 0; i < name.Length; i++)
+        {
+            if (name[i] == ' ' || name[i] == '_')
+            {
+                upperCase = true;
+            }
+            else
+            {
+                if (i == 0 || upperCase)
+                {
+                    result += name[i].ToString().ToUpperInvariant();
+                    upperCase = false;
+                }
+                else
+                {
+                    result += name[i];
+                }
+            }
+        }
+
+        return result;
     }
 }
 

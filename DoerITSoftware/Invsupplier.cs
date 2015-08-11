@@ -12,25 +12,20 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class Invsupplier
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Invoice()
+        public Invsupplier()
         {
-            this.Payments = new HashSet<Payment>();
-            this.SellingItem = new HashSet<SellingItem>();
+            this.Batches = new HashSet<Batch>();
+            this.ItemCategory = new HashSet<ItemCategory>();
         }
     
         public string Id { get; set; }
-        public string StaffId { get; set; }
-        public string CustomerId { get; set; }
-        public string InvoiceNo { get; set; }
-        public Nullable<System.DateTime> InvoiceDate { get; set; }
-        public Nullable<int> Qty { get; set; }
-        public Nullable<double> SubTotal { get; set; }
-        public Nullable<double> Discount { get; set; }
-        public Nullable<double> NetTotal { get; set; }
-        public string Terms { get; set; }
+        public string SupplierName { get; set; }
+        public string Address { get; set; }
+        public string Telephone { get; set; }
+        public string Email { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -38,11 +33,9 @@ namespace DoerITSoftware
         public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Invstaff Staff { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Batch> Batches { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SellingItem> SellingItem { get; set; }
+        public virtual ICollection<ItemCategory> ItemCategory { get; set; }
     }
 }

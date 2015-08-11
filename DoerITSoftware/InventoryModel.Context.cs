@@ -35,8 +35,8 @@ namespace DoerITSoftware
         public virtual DbSet<payment> payments { get; set; }
         public virtual DbSet<returned_details> returned_details { get; set; }
         public virtual DbSet<selling_item> selling_item { get; set; }
-        public virtual DbSet<staff> staffs { get; set; }
-        public virtual DbSet<supplier> suppliers { get; set; }
+        public virtual DbSet<invstaff> invstaffs { get; set; }
+        public virtual DbSet<Invsupplier> Invsuppliers { get; set; }
         public virtual DbSet<supplier_payment> supplier_payment { get; set; }
         public virtual DbSet<warranty_details> warranty_details { get; set; }
     }

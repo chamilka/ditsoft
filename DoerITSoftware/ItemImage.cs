@@ -12,20 +12,16 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class ItemImage
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.BatchVsItems = new HashSet<BatchVsItems>();
-        }
-    
         public string Id { get; set; }
-        public string CustomerId { get; set; }
-        public string OrderNo { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
-        public Nullable<int> Qty { get; set; }
-        public Nullable<sbyte> OrderStatus { get; set; }
+        public string ReturnedDetailsId { get; set; }
+        public string BatchVsItemsId { get; set; }
+        public string ItemfileName { get; set; }
+        public string FileType { get; set; }
+        public Nullable<int> FileSize { get; set; }
+        public byte[] FileContent { get; set; }
+        public Nullable<bool> Save { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -33,8 +29,7 @@ namespace DoerITSoftware
         public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BatchVsItems> BatchVsItems { get; set; }
+        public virtual BatchVsItems BatchVsItems { get; set; }
+        public virtual ReturnedDetails ReturnedDetails { get; set; }
     }
 }

@@ -12,37 +12,37 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class SellingItem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Invoice()
+        public Item()
         {
-            this.Payments = new HashSet<Payment>();
-            this.SellingItem = new HashSet<SellingItem>();
+            this.ReturnedDetails = new HashSet<ReturnedDetails>();
+            this.WarrantyDetails = new HashSet<WarrantyDetails>();
         }
     
         public string Id { get; set; }
-        public string StaffId { get; set; }
-        public string CustomerId { get; set; }
-        public string InvoiceNo { get; set; }
-        public Nullable<System.DateTime> InvoiceDate { get; set; }
-        public Nullable<int> Qty { get; set; }
-        public Nullable<double> SubTotal { get; set; }
+        public string BatchVsItemsId { get; set; }
+        public string InvoiceId { get; set; }
+        public string QrCode { get; set; }
+        public string SerialNo { get; set; }
+        public Nullable<double> Price { get; set; }
         public Nullable<double> Discount { get; set; }
-        public Nullable<double> NetTotal { get; set; }
-        public string Terms { get; set; }
+        public Nullable<double> SoldPrice { get; set; }
+        public Nullable<sbyte> Status { get; set; }
+        public Nullable<int> ReturnStatus { get; set; }
+        public string ReturnComment { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
         public Nullable<System.DateTime> UpdateDateTime { get; set; }
         public string Remark { get; set; }
-        public Nullable<sbyte> Status { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Invstaff Staff { get; set; }
+        public virtual BatchVsItems BatchVsItems { get; set; }
+        public virtual Invoice Invoice { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<ReturnedDetails> ReturnedDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SellingItem> SellingItem { get; set; }
+        public virtual ICollection<WarrantyDetails> WarrantyDetails { get; set; }
     }
 }

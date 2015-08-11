@@ -12,29 +12,29 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class item_category
+    public partial class ItemCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public item_category()
+        public Category()
         {
-            this.batch_vs_items = new HashSet<batch_vs_items>();
-            this.suppliers = new HashSet<supplier>();
+            this.BatchVsItems = new HashSet<BatchVsItems>();
+            this.Suppliers = new HashSet<Invsupplier>();
         }
     
-        public string ID { get; set; }
-        public string ITEM_NAME { get; set; }
-        public string ITEM_TYPE { get; set; }
-        public Nullable<sbyte> STATUS { get; set; }
-        public string INSERT_USER { get; set; }
-        public string UPDATE_USER { get; set; }
-        public Nullable<System.DateTime> INSERT_DATE_TIME { get; set; }
-        public Nullable<System.DateTime> UPDATE_DATE_TIME { get; set; }
-        public string REMARK { get; set; }
-        public Nullable<int> IS_PART { get; set; }
+        public string Id { get; set; }
+        public string ItemName { get; set; }
+        public string ItemType { get; set; }
+        public Nullable<sbyte> Status { get; set; }
+        public string InsertUser { get; set; }
+        public string UpdateUser { get; set; }
+        public Nullable<System.DateTime> InsertDateTime { get; set; }
+        public Nullable<System.DateTime> UpdateDateTime { get; set; }
+        public string Remark { get; set; }
+        public Nullable<int> IsPart { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<batch_vs_items> batch_vs_items { get; set; }
+        public virtual ICollection<BatchVsItems> BatchVsItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<supplier> suppliers { get; set; }
+        public virtual ICollection<Invsupplier> Suppliers { get; set; }
     }
 }

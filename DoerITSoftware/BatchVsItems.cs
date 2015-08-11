@@ -12,25 +12,30 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class BatchVsItems
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Invoice()
+        public VsItems()
         {
-            this.Payments = new HashSet<Payment>();
             this.SellingItem = new HashSet<SellingItem>();
+            this.ItemImage = new HashSet<ItemImage>();
+            this.Orders = new HashSet<Order>();
         }
     
         public string Id { get; set; }
-        public string StaffId { get; set; }
-        public string CustomerId { get; set; }
-        public string InvoiceNo { get; set; }
-        public Nullable<System.DateTime> InvoiceDate { get; set; }
+        public string BatchId { get; set; }
+        public string ItemCategoryId { get; set; }
+        public string Manufacturer { get; set; }
+        public string Country { get; set; }
+        public string Model { get; set; }
         public Nullable<int> Qty { get; set; }
-        public Nullable<double> SubTotal { get; set; }
-        public Nullable<double> Discount { get; set; }
-        public Nullable<double> NetTotal { get; set; }
-        public string Terms { get; set; }
+        public string Unit { get; set; }
+        public Nullable<double> UnitCost { get; set; }
+        public Nullable<double> UnitPrice { get; set; }
+        public string Type { get; set; }
+        public string Defects { get; set; }
+        public string Description { get; set; }
+        public string WarrantyPeriod { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -38,11 +43,13 @@ namespace DoerITSoftware
         public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Invstaff Staff { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual Batch Batch { get; set; }
+        public virtual ItemCategory ItemCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellingItem> SellingItem { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemImage> ItemImage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

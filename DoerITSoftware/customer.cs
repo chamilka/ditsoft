@@ -12,32 +12,32 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class customer
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public customer()
+        public Customer()
         {
-            this.invoices = new HashSet<invoice>();
-            this.orders = new HashSet<order>();
+            this.Invoices = new HashSet<Invoice>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public string ID { get; set; }
-        public string FNAME { get; set; }
-        public string NNAME { get; set; }
-        public string LNAME { get; set; }
-        public string ADDRESS { get; set; }
-        public string EMAIL { get; set; }
-        public string TELEPHONE { get; set; }
-        public string INSERT_USER { get; set; }
-        public string UPDATE_USER { get; set; }
-        public Nullable<System.DateTime> INSERT_DATE_TIME { get; set; }
-        public Nullable<System.DateTime> UPDATE_DATE_TIME { get; set; }
-        public string REMARK { get; set; }
-        public Nullable<sbyte> STATUS { get; set; }
+        public string Id { get; set; }
+        public string Fname { get; set; }
+        public string Nname { get; set; }
+        public string Lname { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Telephone { get; set; }
+        public string InsertUser { get; set; }
+        public string UpdateUser { get; set; }
+        public Nullable<System.DateTime> InsertDateTime { get; set; }
+        public Nullable<System.DateTime> UpdateDateTime { get; set; }
+        public string Remark { get; set; }
+        public Nullable<sbyte> Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<invoice> invoices { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<order> orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

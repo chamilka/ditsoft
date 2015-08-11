@@ -806,7 +806,7 @@
           <NavigationProperty Name="returned_details" Relationship="Self.fk_returned_details_item1" FromRole="selling_item" ToRole="returned_details" />
           <NavigationProperty Name="warranty_details" Relationship="Self.fk_warranty_details_item1" FromRole="selling_item" ToRole="warranty_details" />
         </EntityType>
-        <EntityType Name="staff">
+        <EntityType Name="invstaff">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -828,7 +828,7 @@
           <Property Name="STATUS" Type="SByte" />
           <NavigationProperty Name="invoices" Relationship="Self.fk_invoice_staff1" FromRole="staff" ToRole="invoice" />
         </EntityType>
-        <EntityType Name="supplier">
+        <EntityType Name="Invsupplier">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -883,7 +883,7 @@
           <NavigationProperty Name="selling_item" Relationship="Self.fk_warranty_details_item1" FromRole="warranty_details" ToRole="selling_item" />
         </EntityType>
         <Association Name="fk_batch_supplier1">
-          <End Role="supplier" Type="Self.supplier" Multiplicity="1" />
+          <End Role="supplier" Type="inventory_dbModel.Invsupplier" Multiplicity="1" />
           <End Role="batch" Type="Self.batch" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="supplier">
@@ -979,7 +979,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_invoice_staff1">
-          <End Role="staff" Type="Self.staff" Multiplicity="0..1" />
+          <End Role="staff" Type="inventory_dbModel.invstaff" Multiplicity="0..1" />
           <End Role="invoice" Type="Self.invoice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="staff">
@@ -1056,7 +1056,7 @@
         </Association>
         <Association Name="supplier_has_item_category">
           <End Role="item_category" Type="Self.item_category" Multiplicity="*" />
-          <End Role="supplier" Type="Self.supplier" Multiplicity="*" />
+          <End Role="supplier" Type="inventory_dbModel.Invsupplier" Multiplicity="*" />
         </Association>
         <EntityContainer Name="inventory_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="batches" EntityType="Self.batch" />
@@ -1069,12 +1069,12 @@
           <EntitySet Name="payments" EntityType="Self.payment" />
           <EntitySet Name="returned_details" EntityType="Self.returned_details" />
           <EntitySet Name="selling_item" EntityType="Self.selling_item" />
-          <EntitySet Name="staffs" EntityType="Self.staff" />
-          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="invstaffs" EntityType="inventory_dbModel.invstaff" />
+          <EntitySet Name="Invsuppliers" EntityType="inventory_dbModel.Invsupplier" />
           <EntitySet Name="supplier_payment" EntityType="Self.supplier_payment" />
           <EntitySet Name="warranty_details" EntityType="Self.warranty_details" />
           <AssociationSet Name="fk_batch_supplier1" Association="Self.fk_batch_supplier1">
-            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="supplier" EntitySet="Invsuppliers" />
             <End Role="batch" EntitySet="batches" />
           </AssociationSet>
           <AssociationSet Name="fk_batch_vs_items_batch1" Association="Self.fk_batch_vs_items_batch1">
@@ -1106,7 +1106,7 @@
             <End Role="order" EntitySet="orders" />
           </AssociationSet>
           <AssociationSet Name="fk_invoice_staff1" Association="Self.fk_invoice_staff1">
-            <End Role="staff" EntitySet="staffs" />
+            <End Role="staff" EntitySet="invstaffs" />
             <End Role="invoice" EntitySet="invoices" />
           </AssociationSet>
           <AssociationSet Name="fk_payments_invoice1" Association="Self.fk_payments_invoice1">
@@ -1135,7 +1135,7 @@
           </AssociationSet>
           <AssociationSet Name="supplier_has_item_category" Association="Self.supplier_has_item_category">
             <End Role="item_category" EntitySet="item_category" />
-            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="supplier" EntitySet="Invsuppliers" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1342,8 +1342,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="staffs">
-            <EntityTypeMapping TypeName="inventory_dbModel.staff">
+          <EntitySetMapping Name="invstaffs">
+            <EntityTypeMapping TypeName="inventory_dbModel.invstaff">
               <MappingFragment StoreEntitySet="staff">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EMPLOYEE_NO" ColumnName="EMPLOYEE_NO" />
@@ -1364,8 +1364,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="suppliers">
-            <EntityTypeMapping TypeName="inventory_dbModel.supplier">
+          <EntitySetMapping Name="Invsuppliers">
+            <EntityTypeMapping TypeName="inventory_dbModel.Invsupplier">
               <MappingFragment StoreEntitySet="supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />

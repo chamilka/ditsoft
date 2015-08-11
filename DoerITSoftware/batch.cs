@@ -12,33 +12,33 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class batch
+    public partial class Batch
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public batch()
+        public Batch()
         {
-            this.batch_vs_items = new HashSet<batch_vs_items>();
-            this.supplier_payment = new HashSet<supplier_payment>();
+            this.BatchVsItems = new HashSet<BatchVsItems>();
+            this.SupplierPayment = new HashSet<SupplierPayment>();
         }
     
-        public string ID { get; set; }
-        public string SUPPLIER_ID { get; set; }
-        public string BATCH_NAME { get; set; }
-        public Nullable<long> NO_TYPE { get; set; }
-        public Nullable<double> TOTAL_AMOUNT { get; set; }
-        public Nullable<sbyte> PAYMENT_STATUS { get; set; }
-        public string DESCRIPTION { get; set; }
-        public string INSERT_USER { get; set; }
-        public string UPDATE_USER { get; set; }
-        public Nullable<System.DateTime> INSERT_DATE_TIME { get; set; }
-        public Nullable<System.DateTime> UPDATE_DATE_TIME { get; set; }
-        public string REMARK { get; set; }
-        public Nullable<sbyte> STATUS { get; set; }
+        public string Id { get; set; }
+        public string SupplierId { get; set; }
+        public string BatchName { get; set; }
+        public Nullable<long> NoType { get; set; }
+        public Nullable<double> TotalAmount { get; set; }
+        public Nullable<sbyte> PaymentStatus { get; set; }
+        public string Description { get; set; }
+        public string InsertUser { get; set; }
+        public string UpdateUser { get; set; }
+        public Nullable<System.DateTime> InsertDateTime { get; set; }
+        public Nullable<System.DateTime> UpdateDateTime { get; set; }
+        public string Remark { get; set; }
+        public Nullable<sbyte> Status { get; set; }
     
-        public virtual supplier supplier { get; set; }
+        public virtual Invsupplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<batch_vs_items> batch_vs_items { get; set; }
+        public virtual ICollection<BatchVsItems> BatchVsItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<supplier_payment> supplier_payment { get; set; }
+        public virtual ICollection<SupplierPayment> SupplierPayment { get; set; }
     }
 }
