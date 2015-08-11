@@ -14,8 +14,7 @@ namespace DoerITSoftware
     
     public partial class BatchVsItems
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VsItems()
+        public BatchVsItems()
         {
             this.SellingItem = new HashSet<SellingItem>();
             this.ItemImage = new HashSet<ItemImage>();
@@ -45,11 +44,8 @@ namespace DoerITSoftware
     
         public virtual Batch Batch { get; set; }
         public virtual ItemCategory ItemCategory { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellingItem> SellingItem { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemImage> ItemImage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

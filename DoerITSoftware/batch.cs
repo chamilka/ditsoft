@@ -36,9 +36,7 @@ namespace DoerITSoftware
         public Nullable<sbyte> Status { get; set; }
     
         public virtual Invsupplier Supplier { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BatchVsItems> BatchVsItems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SupplierPayment> SupplierPayment { get; set; }
     }
 }

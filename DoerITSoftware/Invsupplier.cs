@@ -14,7 +14,6 @@ namespace DoerITSoftware
     
     public partial class Invsupplier
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Invsupplier()
         {
             this.Batches = new HashSet<Batch>();
@@ -33,9 +32,7 @@ namespace DoerITSoftware
         public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Batch> Batches { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemCategory> ItemCategory { get; set; }
     }
 }
