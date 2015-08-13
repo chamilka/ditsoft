@@ -14,7 +14,6 @@ namespace DoerITSoftware
     
     public partial class ReturnedDetails
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ReturnedDetails()
         {
             this.ItemImage = new HashSet<ItemImage>();
@@ -32,7 +31,6 @@ namespace DoerITSoftware
         public Nullable<System.DateTime> UpdateDateTime { get; set; }
         public string Remark { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemImage> ItemImage { get; set; }
         public virtual SellingItem SellingItem { get; set; }
     }

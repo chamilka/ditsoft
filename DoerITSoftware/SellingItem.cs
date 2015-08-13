@@ -14,7 +14,6 @@ namespace DoerITSoftware
     
     public partial class SellingItem
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SellingItem()
         {
             this.ReturnedDetails = new HashSet<ReturnedDetails>();
@@ -40,9 +39,7 @@ namespace DoerITSoftware
     
         public virtual BatchVsItems BatchVsItems { get; set; }
         public virtual Invoice Invoice { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReturnedDetails> ReturnedDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WarrantyDetails> WarrantyDetails { get; set; }
     }
 }

@@ -12,10 +12,9 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Supplier
+    public partial class Invsupplier
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Supplier()
+        public Invsupplier()
         {
             this.Batches = new HashSet<Batch>();
             this.ItemCategory = new HashSet<ItemCategory>();
@@ -33,9 +32,7 @@ namespace DoerITSoftware
         public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Batch> Batches { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemCategory> ItemCategory { get; set; }
     }
 }

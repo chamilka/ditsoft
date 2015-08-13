@@ -12,10 +12,9 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Staff
+    public partial class Invstaff
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Staff()
+        public Invstaff()
         {
             this.Invoices = new HashSet<Invoice>();
         }
@@ -37,7 +36,6 @@ namespace DoerITSoftware
         public string Remarks { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }
