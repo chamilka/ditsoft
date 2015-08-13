@@ -39,7 +39,7 @@ namespace DoerITSoftware
         public Nullable<sbyte> Status { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Invstaff Staff { get; set; }
+        public virtual Staff Staff { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

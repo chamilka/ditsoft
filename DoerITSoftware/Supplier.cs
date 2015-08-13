@@ -12,32 +12,30 @@ namespace DoerITSoftware
     using System;
     using System.Collections.Generic;
     
-    public partial class Invstaff
+    public partial class Supplier
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Invstaff()
+        public Supplier()
         {
-            this.Invoices = new HashSet<Invoice>();
+            this.Batches = new HashSet<Batch>();
+            this.ItemCategory = new HashSet<ItemCategory>();
         }
     
         public string Id { get; set; }
-        public string EmployeeNo { get; set; }
-        public string StaffFname { get; set; }
-        public string StaffMname { get; set; }
-        public string StaffLname { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public string SupplierName { get; set; }
+        public string Address { get; set; }
         public string Telephone { get; set; }
-        public string Telephone2 { get; set; }
         public string Email { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
         public Nullable<System.DateTime> UpdateDateTime { get; set; }
-        public string Remarks { get; set; }
+        public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<Batch> Batches { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemCategory> ItemCategory { get; set; }
     }
 }

@@ -35,7 +35,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     {
 #>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public <#=code.Escape(PascalCase(entity.Name.Substring(entity.Name.IndexOf("_")+1)))#>()
+    public <#=code.Escape(PascalCase(entity))#>()
     {
 <#
         foreach (var edmProperty in propertiesWithDefaultValues)

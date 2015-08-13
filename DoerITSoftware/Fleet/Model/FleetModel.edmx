@@ -4,123 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VehicleDbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="VehicleDbModelStoreContainer">
-          <EntitySet Name="vrs_drive" EntityType="VehicleDbModel.Store.vrs_drive" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_driver" EntityType="VehicleDbModel.Store.vrs_driver" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_expense" EntityType="VehicleDbModel.Store.vrs_expense" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_fuel" EntityType="VehicleDbModel.Store.vrs_fuel" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_insurance" EntityType="VehicleDbModel.Store.vrs_insurance" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_license" EntityType="VehicleDbModel.Store.vrs_license" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_maintenance" EntityType="VehicleDbModel.Store.vrs_maintenance" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_maintenance_task" EntityType="VehicleDbModel.Store.vrs_maintenance_task" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_place" EntityType="VehicleDbModel.Store.vrs_place" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_repair" EntityType="VehicleDbModel.Store.vrs_repair" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_repair_spare_part" EntityType="VehicleDbModel.Store.vrs_repair_spare_part" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_spare_part" EntityType="VehicleDbModel.Store.vrs_spare_part" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_supplier" EntityType="VehicleDbModel.Store.vrs_supplier" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_supplier_spare_part" EntityType="VehicleDbModel.Store.vrs_supplier_spare_part" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_supplier_tire" EntityType="VehicleDbModel.Store.vrs_supplier_tire" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_task" EntityType="VehicleDbModel.Store.vrs_task" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_task_spare_part" EntityType="VehicleDbModel.Store.vrs_task_spare_part" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_tire" EntityType="VehicleDbModel.Store.vrs_tire" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_vehicle" EntityType="VehicleDbModel.Store.vrs_vehicle" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_vehicle_image" EntityType="VehicleDbModel.Store.vrs_vehicle_image" store:Type="Tables" Schema="vehicledb" />
-          <EntitySet Name="vrs_vehicle_tire" EntityType="VehicleDbModel.Store.vrs_vehicle_tire" store:Type="Tables" Schema="vehicledb" />
-          <AssociationSet Name="fk_vrs_drive_vrs_driver1" Association="VehicleDbModel.Store.fk_vrs_drive_vrs_driver1">
-            <End Role="vrs_driver" EntitySet="vrs_driver" />
-            <End Role="vrs_drive" EntitySet="vrs_drive" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_drive_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_drive_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_drive" EntitySet="vrs_drive" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_expense_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_expense_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_expense" EntitySet="vrs_expense" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_fuel_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_fuel_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_fuel" EntitySet="vrs_fuel" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_insurance_vrs_vehicle" Association="VehicleDbModel.Store.fk_vrs_insurance_vrs_vehicle">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_insurance" EntitySet="vrs_insurance" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_license_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_license_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_license" EntitySet="vrs_license" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" Association="VehicleDbModel.Store.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1">
-            <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
-            <End Role="vrs_maintenance_task" EntitySet="vrs_maintenance_task" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_task1" Association="VehicleDbModel.Store.fk_vrs_maintenance_has_vrs_task_vrs_task1">
-            <End Role="vrs_task" EntitySet="vrs_task" />
-            <End Role="vrs_maintenance_task" EntitySet="vrs_maintenance_task" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_place_vrs_drive1" Association="VehicleDbModel.Store.fk_vrs_place_vrs_drive1">
-            <End Role="vrs_drive" EntitySet="vrs_drive" />
-            <End Role="vrs_place" EntitySet="vrs_place" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_repair1" Association="VehicleDbModel.Store.fk_vrs_repair_has_vrs_spare_part_vrs_repair1">
-            <End Role="vrs_repair" EntitySet="vrs_repair" />
-            <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" Association="VehicleDbModel.Store.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1">
-            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
-            <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_repair_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_repair_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_repair" EntitySet="vrs_repair" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_service_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_service_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" Association="VehicleDbModel.Store.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1">
-            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
-            <End Role="vrs_supplier_spare_part" EntitySet="vrs_supplier_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" Association="VehicleDbModel.Store.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1">
-            <End Role="vrs_supplier" EntitySet="vrs_supplier" />
-            <End Role="vrs_supplier_spare_part" EntitySet="vrs_supplier_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_supplier1" Association="VehicleDbModel.Store.fk_vrs_supplier_has_vrs_tire_vrs_supplier1">
-            <End Role="vrs_supplier" EntitySet="vrs_supplier" />
-            <End Role="vrs_supplier_tire" EntitySet="vrs_supplier_tire" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_tire1" Association="VehicleDbModel.Store.fk_vrs_supplier_has_vrs_tire_vrs_tire1">
-            <End Role="vrs_tire" EntitySet="vrs_tire" />
-            <End Role="vrs_supplier_tire" EntitySet="vrs_supplier_tire" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" Association="VehicleDbModel.Store.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1">
-            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
-            <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_task1" Association="VehicleDbModel.Store.fk_vrs_task_has_vrs_spare_part_vrs_task1">
-            <End Role="vrs_task" EntitySet="vrs_task" />
-            <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_tire1" Association="VehicleDbModel.Store.fk_vrs_tire_has_vrs_vehicle_vrs_tire1">
-            <End Role="vrs_tire" EntitySet="vrs_tire" />
-            <End Role="vrs_vehicle_tire" EntitySet="vrs_vehicle_tire" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_vehicle_tire" EntitySet="vrs_vehicle_tire" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_vehicle_image_vrs_vehicle1" Association="VehicleDbModel.Store.fk_vrs_vehicle_image_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_vehicle_image" EntitySet="vrs_vehicle_image" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="VehicleDBModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="vrs_drive">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="START_DATE_TIME" Type="date" />
           <Property Name="START_ODOMETER" Type="float" />
           <Property Name="END_DATE_TIME" Type="date" />
@@ -130,17 +19,17 @@
           <Property Name="IS_SHEDULED" Type="enum" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_driver_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_driver_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_driver">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="FULL_NAME" Type="varchar" MaxLength="255" />
           <Property Name="FIRST_NAME" Type="varchar" MaxLength="32" />
           <Property Name="LAST_NAME" Type="varchar" MaxLength="32" />
@@ -157,31 +46,31 @@
           <Property Name="JOB_TYPE" Type="set" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="REMARK" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="vrs_expense">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="AMOUNT" Type="float" />
           <Property Name="DATE_TIME" Type="date" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_fuel">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="AMOUNT" Type="float" />
           <Property Name="VOLUME" Type="float" />
           <Property Name="ODOMETER" Type="float" />
@@ -189,37 +78,37 @@
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_insurance">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="POLICY_NUMBER" Type="varchar" MaxLength="32" />
           <Property Name="COMPANY" Type="varchar" MaxLength="32" />
           <Property Name="OWNER_NAME" Type="varchar" MaxLength="32" />
           <Property Name="OWNER_ADDRESS" Type="varchar" MaxLength="32" />
-          <Property Name="FROM_DATE" Type="datetime" />
-          <Property Name="TO_DATE" Type="datetime" />
-          <Property Name="ISSUE_DATE" Type="datetime" />
+          <Property Name="FROM_DATE" Type="datetime" Precision="0" />
+          <Property Name="TO_DATE" Type="datetime" Precision="0" />
+          <Property Name="ISSUE_DATE" Type="datetime" Precision="0" />
           <Property Name="IMAGE" Type="blob" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_license">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="LICENSE_NUMBER" Type="varchar" MaxLength="64" />
           <Property Name="VALIDITY_PERIOD" Type="varchar" MaxLength="64" />
           <Property Name="CLASS" Type="varchar" MaxLength="64" />
@@ -239,16 +128,16 @@
           <Property Name="LICENSE_IMAGE" Type="blob" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_maintenance">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="METER_READING" Type="varchar" MaxLength="8" />
           <Property Name="DATE" Type="date" />
           <Property Name="NEXT_METER_READING" Type="varchar" MaxLength="8" />
@@ -257,45 +146,45 @@
           <Property Name="INVOICE_IMAGE" Type="blob" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_maintenance_task">
           <Key>
             <PropertyRef Name="vrs_maintenance_ID" />
             <PropertyRef Name="vrs_task_ID" />
           </Key>
-          <Property Name="vrs_maintenance_ID" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_task_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_maintenance_ID" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_task_ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_place">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="ARRIVAL_DATE_TIME" Type="date" />
           <Property Name="ODOMETER" Type="float" />
           <Property Name="DEPARTURE_DATE_TIME" Type="date" />
           <Property Name="JOB_DESCRIPTION" Type="varchar" MaxLength="255" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_drive_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_drive_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_repair">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="DATE_TIME" Type="date" />
           <Property Name="GARAGE_NAME" Type="varchar" MaxLength="100" />
           <Property Name="REPAIR TYPE" Type="varchar" MaxLength="255" />
@@ -303,31 +192,31 @@
           <Property Name="INVOICE_IMAGE" Type="blob" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_repair_spare_part">
           <Key>
             <PropertyRef Name="vrs_repair_ID" />
             <PropertyRef Name="vrs_spare_part_ID" />
           </Key>
-          <Property Name="vrs_repair_ID" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_spare_part_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_repair_ID" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_spare_part_ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="PRICE" Type="float" />
           <Property Name="QUANTITY" Type="float" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_spare_part">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="PART_NUMBER" Type="varchar" MaxLength="64" />
           <Property Name="SERIAL_NUMBER" Type="varchar" MaxLength="64" />
           <Property Name="PART_NAME" Type="varchar" MaxLength="64" />
@@ -337,15 +226,15 @@
           <Property Name="STOCK" Type="float" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_supplier">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="255" />
           <Property Name="ADDRESS" Type="varchar" MaxLength="255" />
           <Property Name="TELEPHONE1" Type="varchar" MaxLength="15" />
@@ -362,62 +251,62 @@
             <PropertyRef Name="vrs_supplier_ID" />
             <PropertyRef Name="vrs_spare_part_ID" />
           </Key>
-          <Property Name="vrs_supplier_ID" Type="char" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_spare_part_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_supplier_ID" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_spare_part_ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="QUANTITY" Type="int" />
           <Property Name="INVOICE" Type="blob" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_supplier_tire">
           <Key>
             <PropertyRef Name="vrs_supplier_ID" />
             <PropertyRef Name="vrs_tire_ID" />
           </Key>
-          <Property Name="vrs_supplier_ID" Type="char" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_tire_ID" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_supplier_ID" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_tire_ID" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="INVOICE" Type="blob" />
           <Property Name="QUANTITY" Type="int" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_task">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="64" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_task_spare_part">
           <Key>
             <PropertyRef Name="vrs_task_ID" />
             <PropertyRef Name="vrs_spare_part_ID" />
           </Key>
-          <Property Name="vrs_task_ID" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_spare_part_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_task_ID" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_spare_part_ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="vrs_tire">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="BRAND" Type="varchar" MaxLength="255" />
           <Property Name="RIM_SIZE" Type="tinyint" />
           <Property Name="SIZE_CODE" Type="varchar" MaxLength="32" />
@@ -435,7 +324,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="REGISTRATION_NUMBER" Type="varchar" MaxLength="16" />
           <Property Name="CATEGORY" Type="varchar" MaxLength="32" />
           <Property Name="TYPE" Type="varchar" MaxLength="32" />
@@ -451,16 +340,16 @@
           <Property Name="NUM_WHEELS" Type="tinyint" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="vrs_vehicle_image">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="ID" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="IMAGE" Type="blob" />
           <Property Name="SIDE" Type="varchar" MaxLength="100" />
           <Property Name="INSERT_DATETIME" Type="date" />
@@ -469,28 +358,28 @@
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="REMARK" Type="varchar" MaxLength="255" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
         </EntityType>
         <EntityType Name="vrs_vehicle_tire">
           <Key>
             <PropertyRef Name="vrs_tire_ID" />
             <PropertyRef Name="vrs_vehicle_ID" />
           </Key>
-          <Property Name="vrs_tire_ID" Type="char" Nullable="false" MaxLength="32" />
-          <Property Name="vrs_vehicle_ID" Type="varchar" Nullable="false" MaxLength="32" />
-          <Property Name="DATE_TIME" Type="datetime" />
+          <Property Name="vrs_tire_ID" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="vrs_vehicle_ID" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="REASON" Type="varchar" MaxLength="255" />
           <Property Name="WHEEL" Type="varchar" MaxLength="100" />
           <Property Name="MILAGE" Type="int" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="INSERT_USER" Type="varchar" MaxLength="32" />
-          <Property Name="INSERT_DATE_TIME" Type="datetime" />
+          <Property Name="INSERT_DATE_TIME" Type="datetime" Precision="0" />
           <Property Name="UPDATE_USER" Type="varchar" MaxLength="32" />
-          <Property Name="UPDATE_DATE_TIME" Type="datetime" />
+          <Property Name="UPDATE_DATE_TIME" Type="datetime" Precision="0" />
         </EntityType>
         <Association Name="fk_vrs_drive_vrs_driver1">
-          <End Role="vrs_driver" Type="VehicleDbModel.Store.vrs_driver" Multiplicity="1" />
-          <End Role="vrs_drive" Type="VehicleDbModel.Store.vrs_drive" Multiplicity="*" />
+          <End Role="vrs_driver" Type="Self.vrs_driver" Multiplicity="1" />
+          <End Role="vrs_drive" Type="Self.vrs_drive" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_driver">
               <PropertyRef Name="ID" />
@@ -501,8 +390,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_drive_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_drive" Type="VehicleDbModel.Store.vrs_drive" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_drive" Type="Self.vrs_drive" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -513,8 +402,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_expense_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_expense" Type="VehicleDbModel.Store.vrs_expense" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_expense" Type="Self.vrs_expense" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -525,8 +414,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_fuel_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_fuel" Type="VehicleDbModel.Store.vrs_fuel" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_fuel" Type="Self.vrs_fuel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -537,8 +426,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_insurance_vrs_vehicle">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_insurance" Type="VehicleDbModel.Store.vrs_insurance" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_insurance" Type="Self.vrs_insurance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -549,8 +438,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_license_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_license" Type="VehicleDbModel.Store.vrs_license" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_license" Type="Self.vrs_license" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -561,8 +450,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_maintenance_has_vrs_task_vrs_maintenance1">
-          <End Role="vrs_maintenance" Type="VehicleDbModel.Store.vrs_maintenance" Multiplicity="1" />
-          <End Role="vrs_maintenance_task" Type="VehicleDbModel.Store.vrs_maintenance_task" Multiplicity="*" />
+          <End Role="vrs_maintenance" Type="Self.vrs_maintenance" Multiplicity="1" />
+          <End Role="vrs_maintenance_task" Type="Self.vrs_maintenance_task" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_maintenance">
               <PropertyRef Name="ID" />
@@ -573,8 +462,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_maintenance_has_vrs_task_vrs_task1">
-          <End Role="vrs_task" Type="VehicleDbModel.Store.vrs_task" Multiplicity="1" />
-          <End Role="vrs_maintenance_task" Type="VehicleDbModel.Store.vrs_maintenance_task" Multiplicity="*" />
+          <End Role="vrs_task" Type="Self.vrs_task" Multiplicity="1" />
+          <End Role="vrs_maintenance_task" Type="Self.vrs_maintenance_task" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_task">
               <PropertyRef Name="ID" />
@@ -585,8 +474,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_place_vrs_drive1">
-          <End Role="vrs_drive" Type="VehicleDbModel.Store.vrs_drive" Multiplicity="1" />
-          <End Role="vrs_place" Type="VehicleDbModel.Store.vrs_place" Multiplicity="*" />
+          <End Role="vrs_drive" Type="Self.vrs_drive" Multiplicity="1" />
+          <End Role="vrs_place" Type="Self.vrs_place" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_drive">
               <PropertyRef Name="ID" />
@@ -597,8 +486,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_repair_has_vrs_spare_part_vrs_repair1">
-          <End Role="vrs_repair" Type="VehicleDbModel.Store.vrs_repair" Multiplicity="1" />
-          <End Role="vrs_repair_spare_part" Type="VehicleDbModel.Store.vrs_repair_spare_part" Multiplicity="*" />
+          <End Role="vrs_repair" Type="Self.vrs_repair" Multiplicity="1" />
+          <End Role="vrs_repair_spare_part" Type="Self.vrs_repair_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_repair">
               <PropertyRef Name="ID" />
@@ -609,8 +498,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1">
-          <End Role="vrs_spare_part" Type="VehicleDbModel.Store.vrs_spare_part" Multiplicity="1" />
-          <End Role="vrs_repair_spare_part" Type="VehicleDbModel.Store.vrs_repair_spare_part" Multiplicity="*" />
+          <End Role="vrs_spare_part" Type="Self.vrs_spare_part" Multiplicity="1" />
+          <End Role="vrs_repair_spare_part" Type="Self.vrs_repair_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_spare_part">
               <PropertyRef Name="ID" />
@@ -621,8 +510,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_repair_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_repair" Type="VehicleDbModel.Store.vrs_repair" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_repair" Type="Self.vrs_repair" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -633,8 +522,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_service_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_maintenance" Type="VehicleDbModel.Store.vrs_maintenance" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_maintenance" Type="Self.vrs_maintenance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -645,8 +534,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1">
-          <End Role="vrs_spare_part" Type="VehicleDbModel.Store.vrs_spare_part" Multiplicity="1" />
-          <End Role="vrs_supplier_spare_part" Type="VehicleDbModel.Store.vrs_supplier_spare_part" Multiplicity="*" />
+          <End Role="vrs_spare_part" Type="Self.vrs_spare_part" Multiplicity="1" />
+          <End Role="vrs_supplier_spare_part" Type="Self.vrs_supplier_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_spare_part">
               <PropertyRef Name="ID" />
@@ -657,8 +546,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1">
-          <End Role="vrs_supplier" Type="VehicleDbModel.Store.vrs_supplier" Multiplicity="1" />
-          <End Role="vrs_supplier_spare_part" Type="VehicleDbModel.Store.vrs_supplier_spare_part" Multiplicity="*" />
+          <End Role="vrs_supplier" Type="Self.vrs_supplier" Multiplicity="1" />
+          <End Role="vrs_supplier_spare_part" Type="Self.vrs_supplier_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_supplier">
               <PropertyRef Name="ID" />
@@ -669,8 +558,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_tire_vrs_supplier1">
-          <End Role="vrs_supplier" Type="VehicleDbModel.Store.vrs_supplier" Multiplicity="1" />
-          <End Role="vrs_supplier_tire" Type="VehicleDbModel.Store.vrs_supplier_tire" Multiplicity="*" />
+          <End Role="vrs_supplier" Type="Self.vrs_supplier" Multiplicity="1" />
+          <End Role="vrs_supplier_tire" Type="Self.vrs_supplier_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_supplier">
               <PropertyRef Name="ID" />
@@ -681,8 +570,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_tire_vrs_tire1">
-          <End Role="vrs_tire" Type="VehicleDbModel.Store.vrs_tire" Multiplicity="1" />
-          <End Role="vrs_supplier_tire" Type="VehicleDbModel.Store.vrs_supplier_tire" Multiplicity="*" />
+          <End Role="vrs_tire" Type="Self.vrs_tire" Multiplicity="1" />
+          <End Role="vrs_supplier_tire" Type="Self.vrs_supplier_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_tire">
               <PropertyRef Name="ID" />
@@ -693,8 +582,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_task_has_vrs_spare_part_vrs_spare_part1">
-          <End Role="vrs_spare_part" Type="VehicleDbModel.Store.vrs_spare_part" Multiplicity="1" />
-          <End Role="vrs_task_spare_part" Type="VehicleDbModel.Store.vrs_task_spare_part" Multiplicity="*" />
+          <End Role="vrs_spare_part" Type="Self.vrs_spare_part" Multiplicity="1" />
+          <End Role="vrs_task_spare_part" Type="Self.vrs_task_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_spare_part">
               <PropertyRef Name="ID" />
@@ -705,8 +594,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_task_has_vrs_spare_part_vrs_task1">
-          <End Role="vrs_task" Type="VehicleDbModel.Store.vrs_task" Multiplicity="1" />
-          <End Role="vrs_task_spare_part" Type="VehicleDbModel.Store.vrs_task_spare_part" Multiplicity="*" />
+          <End Role="vrs_task" Type="Self.vrs_task" Multiplicity="1" />
+          <End Role="vrs_task_spare_part" Type="Self.vrs_task_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_task">
               <PropertyRef Name="ID" />
@@ -717,8 +606,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_tire_has_vrs_vehicle_vrs_tire1">
-          <End Role="vrs_tire" Type="VehicleDbModel.Store.vrs_tire" Multiplicity="1" />
-          <End Role="vrs_vehicle_tire" Type="VehicleDbModel.Store.vrs_vehicle_tire" Multiplicity="*" />
+          <End Role="vrs_tire" Type="Self.vrs_tire" Multiplicity="1" />
+          <End Role="vrs_vehicle_tire" Type="Self.vrs_vehicle_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_tire">
               <PropertyRef Name="ID" />
@@ -729,8 +618,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_vehicle_tire" Type="VehicleDbModel.Store.vrs_vehicle_tire" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_vehicle_tire" Type="Self.vrs_vehicle_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -741,8 +630,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_vehicle_image_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.Store.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_vehicle_image" Type="VehicleDbModel.Store.vrs_vehicle_image" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_vehicle_image" Type="Self.vrs_vehicle_image" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -752,541 +641,541 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="VehicleDbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="VehicleDbEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="vrs_drive" EntityType="VehicleDbModel.vrs_drive" />
-          <EntitySet Name="vrs_driver" EntityType="VehicleDbModel.vrs_driver" />
-          <EntitySet Name="vrs_expense" EntityType="VehicleDbModel.vrs_expense" />
-          <EntitySet Name="vrs_fuel" EntityType="VehicleDbModel.vrs_fuel" />
-          <EntitySet Name="vrs_insurance" EntityType="VehicleDbModel.vrs_insurance" />
-          <EntitySet Name="vrs_license" EntityType="VehicleDbModel.vrs_license" />
-          <EntitySet Name="vrs_maintenance" EntityType="VehicleDbModel.vrs_maintenance" />
-          <EntitySet Name="vrs_maintenance_task" EntityType="VehicleDbModel.vrs_maintenance_task" />
-          <EntitySet Name="vrs_place" EntityType="VehicleDbModel.vrs_place" />
-          <EntitySet Name="vrs_repair" EntityType="VehicleDbModel.vrs_repair" />
-          <EntitySet Name="vrs_repair_spare_part" EntityType="VehicleDbModel.vrs_repair_spare_part" />
-          <EntitySet Name="vrs_spare_part" EntityType="VehicleDbModel.vrs_spare_part" />
-          <EntitySet Name="vrs_supplier" EntityType="VehicleDbModel.vrs_supplier" />
-          <EntitySet Name="vrs_supplier_spare_part" EntityType="VehicleDbModel.vrs_supplier_spare_part" />
-          <EntitySet Name="vrs_supplier_tire" EntityType="VehicleDbModel.vrs_supplier_tire" />
-          <EntitySet Name="vrs_task" EntityType="VehicleDbModel.vrs_task" />
-          <EntitySet Name="vrs_task_spare_part" EntityType="VehicleDbModel.vrs_task_spare_part" />
-          <EntitySet Name="vrs_tire" EntityType="VehicleDbModel.vrs_tire" />
-          <EntitySet Name="vrs_vehicle" EntityType="VehicleDbModel.vrs_vehicle" />
-          <EntitySet Name="vrs_vehicle_image" EntityType="VehicleDbModel.vrs_vehicle_image" />
-          <EntitySet Name="vrs_vehicle_tire" EntityType="VehicleDbModel.vrs_vehicle_tire" />
-          <AssociationSet Name="fk_vrs_drive_vrs_driver1" Association="VehicleDbModel.fk_vrs_drive_vrs_driver1">
+        <EntityContainer Name="VehicleDBModelStoreContainer">
+          <EntitySet Name="vrs_drive" EntityType="Self.vrs_drive" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_driver" EntityType="Self.vrs_driver" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_expense" EntityType="Self.vrs_expense" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_fuel" EntityType="Self.vrs_fuel" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_insurance" EntityType="Self.vrs_insurance" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_license" EntityType="Self.vrs_license" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_maintenance" EntityType="Self.vrs_maintenance" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_maintenance_task" EntityType="Self.vrs_maintenance_task" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_place" EntityType="Self.vrs_place" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_repair" EntityType="Self.vrs_repair" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_repair_spare_part" EntityType="Self.vrs_repair_spare_part" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_spare_part" EntityType="Self.vrs_spare_part" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_supplier" EntityType="Self.vrs_supplier" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_supplier_spare_part" EntityType="Self.vrs_supplier_spare_part" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_supplier_tire" EntityType="Self.vrs_supplier_tire" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_task" EntityType="Self.vrs_task" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_task_spare_part" EntityType="Self.vrs_task_spare_part" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_tire" EntityType="Self.vrs_tire" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_vehicle" EntityType="Self.vrs_vehicle" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_vehicle_image" EntityType="Self.vrs_vehicle_image" Schema="vehicledb" store:Type="Tables" />
+          <EntitySet Name="vrs_vehicle_tire" EntityType="Self.vrs_vehicle_tire" Schema="vehicledb" store:Type="Tables" />
+          <AssociationSet Name="fk_vrs_drive_vrs_driver1" Association="Self.fk_vrs_drive_vrs_driver1">
             <End Role="vrs_driver" EntitySet="vrs_driver" />
             <End Role="vrs_drive" EntitySet="vrs_drive" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_drive_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_drive_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_drive_vrs_vehicle1" Association="Self.fk_vrs_drive_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_drive" EntitySet="vrs_drive" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_place_vrs_drive1" Association="VehicleDbModel.fk_vrs_place_vrs_drive1">
-            <End Role="vrs_drive" EntitySet="vrs_drive" />
-            <End Role="vrs_place" EntitySet="vrs_place" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_expense_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_expense_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_expense_vrs_vehicle1" Association="Self.fk_vrs_expense_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_expense" EntitySet="vrs_expense" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_fuel_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_fuel_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_fuel_vrs_vehicle1" Association="Self.fk_vrs_fuel_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_fuel" EntitySet="vrs_fuel" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_insurance_vrs_vehicle" Association="VehicleDbModel.fk_vrs_insurance_vrs_vehicle">
+          <AssociationSet Name="fk_vrs_insurance_vrs_vehicle" Association="Self.fk_vrs_insurance_vrs_vehicle">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_insurance" EntitySet="vrs_insurance" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_license_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_license_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_license_vrs_vehicle1" Association="Self.fk_vrs_license_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_license" EntitySet="vrs_license" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" Association="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1">
+          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" Association="Self.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1">
             <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
             <End Role="vrs_maintenance_task" EntitySet="vrs_maintenance_task" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_service_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_service_vrs_vehicle1">
-            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
-            <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_task1" Association="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_task1">
+          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_task1" Association="Self.fk_vrs_maintenance_has_vrs_task_vrs_task1">
             <End Role="vrs_task" EntitySet="vrs_task" />
             <End Role="vrs_maintenance_task" EntitySet="vrs_maintenance_task" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_repair1" Association="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_repair1">
+          <AssociationSet Name="fk_vrs_place_vrs_drive1" Association="Self.fk_vrs_place_vrs_drive1">
+            <End Role="vrs_drive" EntitySet="vrs_drive" />
+            <End Role="vrs_place" EntitySet="vrs_place" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_repair1" Association="Self.fk_vrs_repair_has_vrs_spare_part_vrs_repair1">
             <End Role="vrs_repair" EntitySet="vrs_repair" />
             <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_repair_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_repair_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" Association="Self.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1">
+            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
+            <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_repair_vrs_vehicle1" Association="Self.fk_vrs_repair_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_repair" EntitySet="vrs_repair" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" Association="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1">
-            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
-            <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
+          <AssociationSet Name="fk_vrs_service_vrs_vehicle1" Association="Self.fk_vrs_service_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" Association="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1">
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" Association="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1">
             <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
             <End Role="vrs_supplier_spare_part" EntitySet="vrs_supplier_spare_part" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" Association="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1">
-            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
-            <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
-          </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" Association="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1">
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" Association="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1">
             <End Role="vrs_supplier" EntitySet="vrs_supplier" />
             <End Role="vrs_supplier_spare_part" EntitySet="vrs_supplier_spare_part" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_supplier1" Association="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_supplier1">
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_supplier1" Association="Self.fk_vrs_supplier_has_vrs_tire_vrs_supplier1">
             <End Role="vrs_supplier" EntitySet="vrs_supplier" />
             <End Role="vrs_supplier_tire" EntitySet="vrs_supplier_tire" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_tire1" Association="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_tire1">
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_tire1" Association="Self.fk_vrs_supplier_has_vrs_tire_vrs_tire1">
             <End Role="vrs_tire" EntitySet="vrs_tire" />
             <End Role="vrs_supplier_tire" EntitySet="vrs_supplier_tire" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_task1" Association="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_task1">
+          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" Association="Self.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1">
+            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
+            <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_task1" Association="Self.fk_vrs_task_has_vrs_spare_part_vrs_task1">
             <End Role="vrs_task" EntitySet="vrs_task" />
             <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_tire1" Association="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_tire1">
+          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_tire1" Association="Self.fk_vrs_tire_has_vrs_vehicle_vrs_tire1">
             <End Role="vrs_tire" EntitySet="vrs_tire" />
             <End Role="vrs_vehicle_tire" EntitySet="vrs_vehicle_tire" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" Association="Self.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_vehicle_tire" EntitySet="vrs_vehicle_tire" />
           </AssociationSet>
-          <AssociationSet Name="fk_vrs_vehicle_image_vrs_vehicle1" Association="VehicleDbModel.fk_vrs_vehicle_image_vrs_vehicle1">
+          <AssociationSet Name="fk_vrs_vehicle_image_vrs_vehicle1" Association="Self.fk_vrs_vehicle_image_vrs_vehicle1">
             <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
             <End Role="vrs_vehicle_image" EntitySet="vrs_vehicle_image" />
           </AssociationSet>
         </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VehicleDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="vrs_drive">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="START_DATE_TIME" Type="DateTime" Precision="0" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="START_DATE_TIME" Type="DateTime" />
           <Property Name="START_ODOMETER" Type="Single" />
-          <Property Name="END_DATE_TIME" Type="DateTime" Precision="0" />
+          <Property Name="END_DATE_TIME" Type="DateTime" />
           <Property Name="END_ODOMETER" Type="Single" />
-          <Property Name="FROM" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="TO" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="IS_SHEDULED" Type="String" MaxLength="65532" Unicode="true" FixedLength="false" />
+          <Property Name="FROM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IS_SHEDULED" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="vrs_driver_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_driver" Relationship="VehicleDbModel.fk_vrs_drive_vrs_driver1" FromRole="vrs_drive" ToRole="vrs_driver" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_drive_vrs_vehicle1" FromRole="vrs_drive" ToRole="vrs_vehicle" />
-          <NavigationProperty Name="vrs_place" Relationship="VehicleDbModel.fk_vrs_place_vrs_drive1" FromRole="vrs_drive" ToRole="vrs_place" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_driver_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_driver" Relationship="Self.fk_vrs_drive_vrs_driver1" FromRole="vrs_drive" ToRole="vrs_driver" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_drive_vrs_vehicle1" FromRole="vrs_drive" ToRole="vrs_vehicle" />
+          <NavigationProperty Name="vrs_place" Relationship="Self.fk_vrs_place_vrs_drive1" FromRole="vrs_drive" ToRole="vrs_place" />
         </EntityType>
         <EntityType Name="vrs_driver">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="FULL_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="FIRST_NAME" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="LAST_NAME" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="ADDRESS" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="TELEPHONE" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="MOBILE1" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="MOBILE2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
-          <Property Name="LICENSE_TYPE" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="LICENSE_NUMBER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="LICENSE_IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
-          <Property Name="LICENSE_ISSUED_DATE" Type="DateTime" Precision="0" />
-          <Property Name="LICENSE_EXPIRY_DATE" Type="DateTime" Precision="0" />
-          <Property Name="JOB_TYPE" Type="String" MaxLength="65531" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILE1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILE2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LICENSE_TYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LICENSE_NUMBER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LICENSE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LICENSE_ISSUED_DATE" Type="DateTime" />
+          <Property Name="LICENSE_EXPIRY_DATE" Type="DateTime" />
+          <Property Name="JOB_TYPE" Type="String" MaxLength="65531" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="REMARK" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_drive" Relationship="VehicleDbModel.fk_vrs_drive_vrs_driver1" FromRole="vrs_driver" ToRole="vrs_drive" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vrs_drive" Relationship="Self.fk_vrs_drive_vrs_driver1" FromRole="vrs_driver" ToRole="vrs_drive" />
         </EntityType>
         <EntityType Name="vrs_expense">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AMOUNT" Type="Single" />
-          <Property Name="DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="DATE_TIME" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_expense_vrs_vehicle1" FromRole="vrs_expense" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_expense_vrs_vehicle1" FromRole="vrs_expense" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_fuel">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AMOUNT" Type="Single" />
           <Property Name="VOLUME" Type="Single" />
           <Property Name="ODOMETER" Type="Single" />
-          <Property Name="DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="DATE_TIME" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_fuel_vrs_vehicle1" FromRole="vrs_fuel" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_fuel_vrs_vehicle1" FromRole="vrs_fuel" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_insurance">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="POLICY_NUMBER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="COMPANY" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="OWNER_NAME" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="OWNER_ADDRESS" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="FROM_DATE" Type="DateTime" Precision="0" />
-          <Property Name="TO_DATE" Type="DateTime" Precision="0" />
-          <Property Name="ISSUE_DATE" Type="DateTime" Precision="0" />
-          <Property Name="IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POLICY_NUMBER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANY" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="OWNER_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="OWNER_ADDRESS" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FROM_DATE" Type="DateTime" />
+          <Property Name="TO_DATE" Type="DateTime" />
+          <Property Name="ISSUE_DATE" Type="DateTime" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_insurance_vrs_vehicle" FromRole="vrs_insurance" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_insurance_vrs_vehicle" FromRole="vrs_insurance" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_license">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="LICENSE_NUMBER" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="VALIDITY_PERIOD" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="CLASS" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="OWNER_NAME" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LICENSE_NUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="VALIDITY_PERIOD" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CLASS" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="OWNER_NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="UNLADEN_WEIGHT" Type="Single" />
           <Property Name="SEATS" Type="Int32" />
           <Property Name="ANNUAL_FEE" Type="Single" />
           <Property Name="ARREARS" Type="Single" />
           <Property Name="ENV_CONTROL_LEVY" Type="Single" />
           <Property Name="TOTAL" Type="Single" />
-          <Property Name="VALID_FROM" Type="DateTime" Precision="0" />
-          <Property Name="VALID_TO" Type="DateTime" Precision="0" />
-          <Property Name="ISSUE_DATE" Type="DateTime" Precision="0" />
-          <Property Name="PROVINCE" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="EMISSION_TEST_NUMBER" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="EMISSION_TEST_IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
-          <Property Name="LICENSE_IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="VALID_FROM" Type="DateTime" />
+          <Property Name="VALID_TO" Type="DateTime" />
+          <Property Name="ISSUE_DATE" Type="DateTime" />
+          <Property Name="PROVINCE" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="EMISSION_TEST_NUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="EMISSION_TEST_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LICENSE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_license_vrs_vehicle1" FromRole="vrs_license" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_license_vrs_vehicle1" FromRole="vrs_license" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_maintenance">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="METER_READING" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
-          <Property Name="DATE" Type="DateTime" Precision="0" />
-          <Property Name="NEXT_METER_READING" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
-          <Property Name="NEXT_DATE" Type="DateTime" Precision="0" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="INVOICE_IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="METER_READING" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DATE" Type="DateTime" />
+          <Property Name="NEXT_METER_READING" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="NEXT_DATE" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="INVOICE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_maintenance_task" Relationship="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" FromRole="vrs_maintenance" ToRole="vrs_maintenance_task" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_service_vrs_vehicle1" FromRole="vrs_maintenance" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_maintenance_task" Relationship="Self.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" FromRole="vrs_maintenance" ToRole="vrs_maintenance_task" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_service_vrs_vehicle1" FromRole="vrs_maintenance" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_maintenance_task">
           <Key>
             <PropertyRef Name="vrs_maintenance_ID" />
             <PropertyRef Name="vrs_task_ID" />
           </Key>
-          <Property Name="vrs_maintenance_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="vrs_task_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="vrs_maintenance_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_task_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_maintenance" Relationship="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" FromRole="vrs_maintenance_task" ToRole="vrs_maintenance" />
-          <NavigationProperty Name="vrs_task" Relationship="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_task1" FromRole="vrs_maintenance_task" ToRole="vrs_task" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_maintenance" Relationship="Self.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" FromRole="vrs_maintenance_task" ToRole="vrs_maintenance" />
+          <NavigationProperty Name="vrs_task" Relationship="Self.fk_vrs_maintenance_has_vrs_task_vrs_task1" FromRole="vrs_maintenance_task" ToRole="vrs_task" />
         </EntityType>
         <EntityType Name="vrs_place">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="ARRIVAL_DATE_TIME" Type="DateTime" Precision="0" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ARRIVAL_DATE_TIME" Type="DateTime" />
           <Property Name="ODOMETER" Type="Single" />
-          <Property Name="DEPARTURE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="JOB_DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="DEPARTURE_DATE_TIME" Type="DateTime" />
+          <Property Name="JOB_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_drive_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_drive" Relationship="VehicleDbModel.fk_vrs_place_vrs_drive1" FromRole="vrs_place" ToRole="vrs_drive" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_drive_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_drive" Relationship="Self.fk_vrs_place_vrs_drive1" FromRole="vrs_place" ToRole="vrs_drive" />
         </EntityType>
         <EntityType Name="vrs_repair">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="GARAGE_NAME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="REPAIR_TYPE" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="INVOICE_IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_TIME" Type="DateTime" />
+          <Property Name="GARAGE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REPAIR_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="INVOICE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_repair_spare_part" Relationship="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_repair1" FromRole="vrs_repair" ToRole="vrs_repair_spare_part" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_repair_vrs_vehicle1" FromRole="vrs_repair" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_repair_spare_part" Relationship="Self.fk_vrs_repair_has_vrs_spare_part_vrs_repair1" FromRole="vrs_repair" ToRole="vrs_repair_spare_part" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_repair_vrs_vehicle1" FromRole="vrs_repair" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_repair_spare_part">
           <Key>
             <PropertyRef Name="vrs_repair_ID" />
             <PropertyRef Name="vrs_spare_part_ID" />
           </Key>
-          <Property Name="vrs_repair_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="vrs_spare_part_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="vrs_repair_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_spare_part_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRICE" Type="Single" />
           <Property Name="QUANTITY" Type="Single" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_repair" Relationship="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_repair1" FromRole="vrs_repair_spare_part" ToRole="vrs_repair" />
-          <NavigationProperty Name="vrs_spare_part" Relationship="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_repair_spare_part" ToRole="vrs_spare_part" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_repair" Relationship="Self.fk_vrs_repair_has_vrs_spare_part_vrs_repair1" FromRole="vrs_repair_spare_part" ToRole="vrs_repair" />
+          <NavigationProperty Name="vrs_spare_part" Relationship="Self.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_repair_spare_part" ToRole="vrs_spare_part" />
         </EntityType>
         <EntityType Name="vrs_spare_part">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="PART_NUMBER" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="SERIAL_NUMBER" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="PART_NAME" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PART_NUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_NUMBER" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="PART_NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="PRICE" Type="Single" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="UNIT" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="STOCK" Type="Single" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_repair_spare_part" Relationship="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_spare_part" ToRole="vrs_repair_spare_part" />
-          <NavigationProperty Name="vrs_supplier_spare_part" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_spare_part" ToRole="vrs_supplier_spare_part" />
-          <NavigationProperty Name="vrs_task_spare_part" Relationship="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_spare_part" ToRole="vrs_task_spare_part" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_repair_spare_part" Relationship="Self.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_spare_part" ToRole="vrs_repair_spare_part" />
+          <NavigationProperty Name="vrs_supplier_spare_part" Relationship="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_spare_part" ToRole="vrs_supplier_spare_part" />
+          <NavigationProperty Name="vrs_task_spare_part" Relationship="Self.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_spare_part" ToRole="vrs_task_spare_part" />
         </EntityType>
         <EntityType Name="vrs_supplier">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="ADDRESS" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="TELEPHONE1" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="TELEPHONE2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATETIME" Type="DateTime" Precision="0" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="UPDATE_DATETIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATETIME" Type="DateTime" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATETIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="REMARK" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_supplier_spare_part" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" FromRole="vrs_supplier" ToRole="vrs_supplier_spare_part" />
-          <NavigationProperty Name="vrs_supplier_tire" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_supplier1" FromRole="vrs_supplier" ToRole="vrs_supplier_tire" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vrs_supplier_spare_part" Relationship="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" FromRole="vrs_supplier" ToRole="vrs_supplier_spare_part" />
+          <NavigationProperty Name="vrs_supplier_tire" Relationship="Self.fk_vrs_supplier_has_vrs_tire_vrs_supplier1" FromRole="vrs_supplier" ToRole="vrs_supplier_tire" />
         </EntityType>
         <EntityType Name="vrs_supplier_spare_part">
           <Key>
             <PropertyRef Name="vrs_supplier_ID" />
             <PropertyRef Name="vrs_spare_part_ID" />
           </Key>
-          <Property Name="vrs_supplier_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="vrs_spare_part_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="vrs_supplier_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_spare_part_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="QUANTITY" Type="Int32" />
-          <Property Name="INVOICE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="INVOICE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_spare_part" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_supplier_spare_part" ToRole="vrs_spare_part" />
-          <NavigationProperty Name="vrs_supplier" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" FromRole="vrs_supplier_spare_part" ToRole="vrs_supplier" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_spare_part" Relationship="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_supplier_spare_part" ToRole="vrs_spare_part" />
+          <NavigationProperty Name="vrs_supplier" Relationship="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" FromRole="vrs_supplier_spare_part" ToRole="vrs_supplier" />
         </EntityType>
         <EntityType Name="vrs_supplier_tire">
           <Key>
             <PropertyRef Name="vrs_supplier_ID" />
             <PropertyRef Name="vrs_tire_ID" />
           </Key>
-          <Property Name="vrs_supplier_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="vrs_tire_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="INVOICE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="vrs_supplier_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_tire_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INVOICE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="QUANTITY" Type="Int32" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_supplier" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_supplier1" FromRole="vrs_supplier_tire" ToRole="vrs_supplier" />
-          <NavigationProperty Name="vrs_tire" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_tire1" FromRole="vrs_supplier_tire" ToRole="vrs_tire" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_supplier" Relationship="Self.fk_vrs_supplier_has_vrs_tire_vrs_supplier1" FromRole="vrs_supplier_tire" ToRole="vrs_supplier" />
+          <NavigationProperty Name="vrs_tire" Relationship="Self.fk_vrs_supplier_has_vrs_tire_vrs_tire1" FromRole="vrs_supplier_tire" ToRole="vrs_tire" />
         </EntityType>
         <EntityType Name="vrs_task">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="NAME" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_maintenance_task" Relationship="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_task1" FromRole="vrs_task" ToRole="vrs_maintenance_task" />
-          <NavigationProperty Name="vrs_task_spare_part" Relationship="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_task1" FromRole="vrs_task" ToRole="vrs_task_spare_part" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_maintenance_task" Relationship="Self.fk_vrs_maintenance_has_vrs_task_vrs_task1" FromRole="vrs_task" ToRole="vrs_maintenance_task" />
+          <NavigationProperty Name="vrs_task_spare_part" Relationship="Self.fk_vrs_task_has_vrs_spare_part_vrs_task1" FromRole="vrs_task" ToRole="vrs_task_spare_part" />
         </EntityType>
         <EntityType Name="vrs_task_spare_part">
           <Key>
             <PropertyRef Name="vrs_task_ID" />
             <PropertyRef Name="vrs_spare_part_ID" />
           </Key>
-          <Property Name="vrs_task_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="vrs_spare_part_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="vrs_task_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_spare_part_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_spare_part" Relationship="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_task_spare_part" ToRole="vrs_spare_part" />
-          <NavigationProperty Name="vrs_task" Relationship="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_task1" FromRole="vrs_task_spare_part" ToRole="vrs_task" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_spare_part" Relationship="Self.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" FromRole="vrs_task_spare_part" ToRole="vrs_spare_part" />
+          <NavigationProperty Name="vrs_task" Relationship="Self.fk_vrs_task_has_vrs_spare_part_vrs_task1" FromRole="vrs_task_spare_part" ToRole="vrs_task" />
         </EntityType>
         <EntityType Name="vrs_tire">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="BRAND" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="RIM_SIZE" Type="SByte" />
-          <Property Name="SIZE_CODE" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="MANUFACTURE_DATE_CODE" Type="String" MaxLength="4" Unicode="false" FixedLength="true" />
-          <Property Name="TYPE" Type="String" MaxLength="65532" Unicode="true" FixedLength="false" />
-          <Property Name="CONDITION" Type="String" MaxLength="65531" Unicode="true" FixedLength="false" />
-          <Property Name="INSERT_DATETIME" Type="DateTime" Precision="0" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="UPDATE_DATETIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="SIZE_CODE" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MANUFACTURE_DATE_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="CONDITION" Type="String" MaxLength="65531" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATETIME" Type="DateTime" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATETIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="REMARK" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_supplier_tire" Relationship="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_tire1" FromRole="vrs_tire" ToRole="vrs_supplier_tire" />
-          <NavigationProperty Name="vrs_vehicle_tire" Relationship="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_tire1" FromRole="vrs_tire" ToRole="vrs_vehicle_tire" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vrs_supplier_tire" Relationship="Self.fk_vrs_supplier_has_vrs_tire_vrs_tire1" FromRole="vrs_tire" ToRole="vrs_supplier_tire" />
+          <NavigationProperty Name="vrs_vehicle_tire" Relationship="Self.fk_vrs_tire_has_vrs_vehicle_vrs_tire1" FromRole="vrs_tire" ToRole="vrs_vehicle_tire" />
         </EntityType>
         <EntityType Name="vrs_vehicle">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="REGISTRATION_NUMBER" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
-          <Property Name="CATEGORY" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="TYPE" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="MAKE" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="MODEL" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="FUEL_TYPE" Type="String" MaxLength="65531" Unicode="true" FixedLength="false" />
-          <Property Name="ENGINE_NUMBER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="CHASSIS_NUMBER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="YEAR_MANUFACTURE" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
-          <Property Name="DATE_IMPORT" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
-          <Property Name="DATE_REGISTER" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
-          <Property Name="REGISTRATION_CERTIFICATE" Type="Binary" MaxLength="65535" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REGISTRATION_NUMBER" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MAKE" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="MODEL" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FUEL_TYPE" Type="String" MaxLength="65531" FixedLength="false" Unicode="false" />
+          <Property Name="ENGINE_NUMBER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="CHASSIS_NUMBER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="YEAR_MANUFACTURE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_IMPORT" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_REGISTER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="REGISTRATION_CERTIFICATE" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="NUM_WHEELS" Type="SByte" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_drive" Relationship="VehicleDbModel.fk_vrs_drive_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_drive" />
-          <NavigationProperty Name="vrs_expense" Relationship="VehicleDbModel.fk_vrs_expense_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_expense" />
-          <NavigationProperty Name="vrs_fuel" Relationship="VehicleDbModel.fk_vrs_fuel_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_fuel" />
-          <NavigationProperty Name="vrs_insurance" Relationship="VehicleDbModel.fk_vrs_insurance_vrs_vehicle" FromRole="vrs_vehicle" ToRole="vrs_insurance" />
-          <NavigationProperty Name="vrs_license" Relationship="VehicleDbModel.fk_vrs_license_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_license" />
-          <NavigationProperty Name="vrs_maintenance" Relationship="VehicleDbModel.fk_vrs_service_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_maintenance" />
-          <NavigationProperty Name="vrs_repair" Relationship="VehicleDbModel.fk_vrs_repair_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_repair" />
-          <NavigationProperty Name="vrs_vehicle_tire" Relationship="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_vehicle_tire" />
-          <NavigationProperty Name="vrs_vehicle_image" Relationship="VehicleDbModel.fk_vrs_vehicle_image_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_vehicle_image" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vrs_drive" Relationship="Self.fk_vrs_drive_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_drive" />
+          <NavigationProperty Name="vrs_expense" Relationship="Self.fk_vrs_expense_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_expense" />
+          <NavigationProperty Name="vrs_fuel" Relationship="Self.fk_vrs_fuel_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_fuel" />
+          <NavigationProperty Name="vrs_insurance" Relationship="Self.fk_vrs_insurance_vrs_vehicle" FromRole="vrs_vehicle" ToRole="vrs_insurance" />
+          <NavigationProperty Name="vrs_license" Relationship="Self.fk_vrs_license_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_license" />
+          <NavigationProperty Name="vrs_maintenance" Relationship="Self.fk_vrs_service_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_maintenance" />
+          <NavigationProperty Name="vrs_repair" Relationship="Self.fk_vrs_repair_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_repair" />
+          <NavigationProperty Name="vrs_vehicle_tire" Relationship="Self.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_vehicle_tire" />
+          <NavigationProperty Name="vrs_vehicle_image" Relationship="Self.fk_vrs_vehicle_image_vrs_vehicle1" FromRole="vrs_vehicle" ToRole="vrs_vehicle_image" />
         </EntityType>
         <EntityType Name="vrs_vehicle_image">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="IMAGE" Type="Binary" MaxLength="65535" FixedLength="false" />
-          <Property Name="SIDE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATETIME" Type="DateTime" Precision="0" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATETIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SIDE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATETIME" Type="DateTime" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATETIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="REMARK" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_vehicle_image_vrs_vehicle1" FromRole="vrs_vehicle_image" ToRole="vrs_vehicle" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_vehicle_image_vrs_vehicle1" FromRole="vrs_vehicle_image" ToRole="vrs_vehicle" />
         </EntityType>
         <EntityType Name="vrs_vehicle_tire">
           <Key>
             <PropertyRef Name="vrs_tire_ID" />
             <PropertyRef Name="vrs_vehicle_ID" />
           </Key>
-          <Property Name="vrs_tire_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
-          <Property Name="vrs_vehicle_ID" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="REASON" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="WHEEL" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="vrs_tire_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vrs_vehicle_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_TIME" Type="DateTime" />
+          <Property Name="REASON" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WHEEL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="MILAGE" Type="Int32" />
           <Property Name="STATUS" Type="SByte" />
-          <Property Name="INSERT_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="INSERT_DATE_TIME" Type="DateTime" Precision="0" />
-          <Property Name="UPDATE_USER" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="UPDATE_DATE_TIME" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="vrs_tire" Relationship="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_tire1" FromRole="vrs_vehicle_tire" ToRole="vrs_tire" />
-          <NavigationProperty Name="vrs_vehicle" Relationship="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" FromRole="vrs_vehicle_tire" ToRole="vrs_vehicle" />
+          <Property Name="INSERT_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE_TIME" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE_TIME" Type="DateTime" />
+          <NavigationProperty Name="vrs_tire" Relationship="Self.fk_vrs_tire_has_vrs_vehicle_vrs_tire1" FromRole="vrs_vehicle_tire" ToRole="vrs_tire" />
+          <NavigationProperty Name="vrs_vehicle" Relationship="Self.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" FromRole="vrs_vehicle_tire" ToRole="vrs_vehicle" />
         </EntityType>
         <Association Name="fk_vrs_drive_vrs_driver1">
-          <End Role="vrs_driver" Type="VehicleDbModel.vrs_driver" Multiplicity="1" />
-          <End Role="vrs_drive" Type="VehicleDbModel.vrs_drive" Multiplicity="*" />
+          <End Role="vrs_driver" Type="Self.vrs_driver" Multiplicity="1" />
+          <End Role="vrs_drive" Type="Self.vrs_drive" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_driver">
               <PropertyRef Name="ID" />
@@ -1297,8 +1186,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_drive_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_drive" Type="VehicleDbModel.vrs_drive" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_drive" Type="Self.vrs_drive" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1309,8 +1198,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_place_vrs_drive1">
-          <End Role="vrs_drive" Type="VehicleDbModel.vrs_drive" Multiplicity="1" />
-          <End Role="vrs_place" Type="VehicleDbModel.vrs_place" Multiplicity="*" />
+          <End Role="vrs_drive" Type="Self.vrs_drive" Multiplicity="1" />
+          <End Role="vrs_place" Type="Self.vrs_place" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_drive">
               <PropertyRef Name="ID" />
@@ -1321,8 +1210,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_expense_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_expense" Type="VehicleDbModel.vrs_expense" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_expense" Type="Self.vrs_expense" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1333,8 +1222,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_fuel_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_fuel" Type="VehicleDbModel.vrs_fuel" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_fuel" Type="Self.vrs_fuel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1345,8 +1234,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_insurance_vrs_vehicle">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_insurance" Type="VehicleDbModel.vrs_insurance" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_insurance" Type="Self.vrs_insurance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1357,8 +1246,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_license_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_license" Type="VehicleDbModel.vrs_license" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_license" Type="Self.vrs_license" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1369,8 +1258,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_maintenance_has_vrs_task_vrs_maintenance1">
-          <End Role="vrs_maintenance" Type="VehicleDbModel.vrs_maintenance" Multiplicity="1" />
-          <End Role="vrs_maintenance_task" Type="VehicleDbModel.vrs_maintenance_task" Multiplicity="*" />
+          <End Role="vrs_maintenance" Type="Self.vrs_maintenance" Multiplicity="1" />
+          <End Role="vrs_maintenance_task" Type="Self.vrs_maintenance_task" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_maintenance">
               <PropertyRef Name="ID" />
@@ -1381,8 +1270,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_service_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_maintenance" Type="VehicleDbModel.vrs_maintenance" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_maintenance" Type="Self.vrs_maintenance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1393,8 +1282,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_maintenance_has_vrs_task_vrs_task1">
-          <End Role="vrs_task" Type="VehicleDbModel.vrs_task" Multiplicity="1" />
-          <End Role="vrs_maintenance_task" Type="VehicleDbModel.vrs_maintenance_task" Multiplicity="*" />
+          <End Role="vrs_task" Type="Self.vrs_task" Multiplicity="1" />
+          <End Role="vrs_maintenance_task" Type="Self.vrs_maintenance_task" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_task">
               <PropertyRef Name="ID" />
@@ -1405,8 +1294,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_repair_has_vrs_spare_part_vrs_repair1">
-          <End Role="vrs_repair" Type="VehicleDbModel.vrs_repair" Multiplicity="1" />
-          <End Role="vrs_repair_spare_part" Type="VehicleDbModel.vrs_repair_spare_part" Multiplicity="*" />
+          <End Role="vrs_repair" Type="Self.vrs_repair" Multiplicity="1" />
+          <End Role="vrs_repair_spare_part" Type="Self.vrs_repair_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_repair">
               <PropertyRef Name="ID" />
@@ -1417,8 +1306,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_repair_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_repair" Type="VehicleDbModel.vrs_repair" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_repair" Type="Self.vrs_repair" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1429,8 +1318,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1">
-          <End Role="vrs_spare_part" Type="VehicleDbModel.vrs_spare_part" Multiplicity="1" />
-          <End Role="vrs_repair_spare_part" Type="VehicleDbModel.vrs_repair_spare_part" Multiplicity="*" />
+          <End Role="vrs_spare_part" Type="Self.vrs_spare_part" Multiplicity="1" />
+          <End Role="vrs_repair_spare_part" Type="Self.vrs_repair_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_spare_part">
               <PropertyRef Name="ID" />
@@ -1441,8 +1330,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1">
-          <End Role="vrs_spare_part" Type="VehicleDbModel.vrs_spare_part" Multiplicity="1" />
-          <End Role="vrs_supplier_spare_part" Type="VehicleDbModel.vrs_supplier_spare_part" Multiplicity="*" />
+          <End Role="vrs_spare_part" Type="Self.vrs_spare_part" Multiplicity="1" />
+          <End Role="vrs_supplier_spare_part" Type="Self.vrs_supplier_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_spare_part">
               <PropertyRef Name="ID" />
@@ -1453,8 +1342,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_task_has_vrs_spare_part_vrs_spare_part1">
-          <End Role="vrs_spare_part" Type="VehicleDbModel.vrs_spare_part" Multiplicity="1" />
-          <End Role="vrs_task_spare_part" Type="VehicleDbModel.vrs_task_spare_part" Multiplicity="*" />
+          <End Role="vrs_spare_part" Type="Self.vrs_spare_part" Multiplicity="1" />
+          <End Role="vrs_task_spare_part" Type="Self.vrs_task_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_spare_part">
               <PropertyRef Name="ID" />
@@ -1465,8 +1354,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1">
-          <End Role="vrs_supplier" Type="VehicleDbModel.vrs_supplier" Multiplicity="1" />
-          <End Role="vrs_supplier_spare_part" Type="VehicleDbModel.vrs_supplier_spare_part" Multiplicity="*" />
+          <End Role="vrs_supplier" Type="Self.vrs_supplier" Multiplicity="1" />
+          <End Role="vrs_supplier_spare_part" Type="Self.vrs_supplier_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_supplier">
               <PropertyRef Name="ID" />
@@ -1477,8 +1366,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_tire_vrs_supplier1">
-          <End Role="vrs_supplier" Type="VehicleDbModel.vrs_supplier" Multiplicity="1" />
-          <End Role="vrs_supplier_tire" Type="VehicleDbModel.vrs_supplier_tire" Multiplicity="*" />
+          <End Role="vrs_supplier" Type="Self.vrs_supplier" Multiplicity="1" />
+          <End Role="vrs_supplier_tire" Type="Self.vrs_supplier_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_supplier">
               <PropertyRef Name="ID" />
@@ -1489,8 +1378,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_supplier_has_vrs_tire_vrs_tire1">
-          <End Role="vrs_tire" Type="VehicleDbModel.vrs_tire" Multiplicity="1" />
-          <End Role="vrs_supplier_tire" Type="VehicleDbModel.vrs_supplier_tire" Multiplicity="*" />
+          <End Role="vrs_tire" Type="Self.vrs_tire" Multiplicity="1" />
+          <End Role="vrs_supplier_tire" Type="Self.vrs_supplier_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_tire">
               <PropertyRef Name="ID" />
@@ -1501,8 +1390,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_task_has_vrs_spare_part_vrs_task1">
-          <End Role="vrs_task" Type="VehicleDbModel.vrs_task" Multiplicity="1" />
-          <End Role="vrs_task_spare_part" Type="VehicleDbModel.vrs_task_spare_part" Multiplicity="*" />
+          <End Role="vrs_task" Type="Self.vrs_task" Multiplicity="1" />
+          <End Role="vrs_task_spare_part" Type="Self.vrs_task_spare_part" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_task">
               <PropertyRef Name="ID" />
@@ -1513,8 +1402,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_tire_has_vrs_vehicle_vrs_tire1">
-          <End Role="vrs_tire" Type="VehicleDbModel.vrs_tire" Multiplicity="1" />
-          <End Role="vrs_vehicle_tire" Type="VehicleDbModel.vrs_vehicle_tire" Multiplicity="*" />
+          <End Role="vrs_tire" Type="Self.vrs_tire" Multiplicity="1" />
+          <End Role="vrs_vehicle_tire" Type="Self.vrs_vehicle_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_tire">
               <PropertyRef Name="ID" />
@@ -1525,8 +1414,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_vehicle_tire" Type="VehicleDbModel.vrs_vehicle_tire" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_vehicle_tire" Type="Self.vrs_vehicle_tire" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1537,8 +1426,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_vrs_vehicle_image_vrs_vehicle1">
-          <End Role="vrs_vehicle" Type="VehicleDbModel.vrs_vehicle" Multiplicity="1" />
-          <End Role="vrs_vehicle_image" Type="VehicleDbModel.vrs_vehicle_image" Multiplicity="*" />
+          <End Role="vrs_vehicle" Type="Self.vrs_vehicle" Multiplicity="1" />
+          <End Role="vrs_vehicle_image" Type="Self.vrs_vehicle_image" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vrs_vehicle">
               <PropertyRef Name="ID" />
@@ -1548,14 +1437,125 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="VehicleDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vrs_drive" EntityType="Self.vrs_drive" />
+          <EntitySet Name="vrs_driver" EntityType="Self.vrs_driver" />
+          <EntitySet Name="vrs_expense" EntityType="Self.vrs_expense" />
+          <EntitySet Name="vrs_fuel" EntityType="Self.vrs_fuel" />
+          <EntitySet Name="vrs_insurance" EntityType="Self.vrs_insurance" />
+          <EntitySet Name="vrs_license" EntityType="Self.vrs_license" />
+          <EntitySet Name="vrs_maintenance" EntityType="Self.vrs_maintenance" />
+          <EntitySet Name="vrs_maintenance_task" EntityType="Self.vrs_maintenance_task" />
+          <EntitySet Name="vrs_place" EntityType="Self.vrs_place" />
+          <EntitySet Name="vrs_repair" EntityType="Self.vrs_repair" />
+          <EntitySet Name="vrs_repair_spare_part" EntityType="Self.vrs_repair_spare_part" />
+          <EntitySet Name="vrs_spare_part" EntityType="Self.vrs_spare_part" />
+          <EntitySet Name="vrs_supplier" EntityType="Self.vrs_supplier" />
+          <EntitySet Name="vrs_supplier_spare_part" EntityType="Self.vrs_supplier_spare_part" />
+          <EntitySet Name="vrs_supplier_tire" EntityType="Self.vrs_supplier_tire" />
+          <EntitySet Name="vrs_task" EntityType="Self.vrs_task" />
+          <EntitySet Name="vrs_task_spare_part" EntityType="Self.vrs_task_spare_part" />
+          <EntitySet Name="vrs_tire" EntityType="Self.vrs_tire" />
+          <EntitySet Name="vrs_vehicle" EntityType="Self.vrs_vehicle" />
+          <EntitySet Name="vrs_vehicle_image" EntityType="Self.vrs_vehicle_image" />
+          <EntitySet Name="vrs_vehicle_tire" EntityType="Self.vrs_vehicle_tire" />
+          <AssociationSet Name="fk_vrs_drive_vrs_driver1" Association="Self.fk_vrs_drive_vrs_driver1">
+            <End Role="vrs_driver" EntitySet="vrs_driver" />
+            <End Role="vrs_drive" EntitySet="vrs_drive" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_drive_vrs_vehicle1" Association="Self.fk_vrs_drive_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_drive" EntitySet="vrs_drive" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_place_vrs_drive1" Association="Self.fk_vrs_place_vrs_drive1">
+            <End Role="vrs_drive" EntitySet="vrs_drive" />
+            <End Role="vrs_place" EntitySet="vrs_place" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_expense_vrs_vehicle1" Association="Self.fk_vrs_expense_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_expense" EntitySet="vrs_expense" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_fuel_vrs_vehicle1" Association="Self.fk_vrs_fuel_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_fuel" EntitySet="vrs_fuel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_insurance_vrs_vehicle" Association="Self.fk_vrs_insurance_vrs_vehicle">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_insurance" EntitySet="vrs_insurance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_license_vrs_vehicle1" Association="Self.fk_vrs_license_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_license" EntitySet="vrs_license" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" Association="Self.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1">
+            <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
+            <End Role="vrs_maintenance_task" EntitySet="vrs_maintenance_task" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_service_vrs_vehicle1" Association="Self.fk_vrs_service_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_maintenance" EntitySet="vrs_maintenance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_maintenance_has_vrs_task_vrs_task1" Association="Self.fk_vrs_maintenance_has_vrs_task_vrs_task1">
+            <End Role="vrs_task" EntitySet="vrs_task" />
+            <End Role="vrs_maintenance_task" EntitySet="vrs_maintenance_task" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_repair1" Association="Self.fk_vrs_repair_has_vrs_spare_part_vrs_repair1">
+            <End Role="vrs_repair" EntitySet="vrs_repair" />
+            <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_repair_vrs_vehicle1" Association="Self.fk_vrs_repair_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_repair" EntitySet="vrs_repair" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" Association="Self.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1">
+            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
+            <End Role="vrs_repair_spare_part" EntitySet="vrs_repair_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" Association="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1">
+            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
+            <End Role="vrs_supplier_spare_part" EntitySet="vrs_supplier_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" Association="Self.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1">
+            <End Role="vrs_spare_part" EntitySet="vrs_spare_part" />
+            <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" Association="Self.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1">
+            <End Role="vrs_supplier" EntitySet="vrs_supplier" />
+            <End Role="vrs_supplier_spare_part" EntitySet="vrs_supplier_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_supplier1" Association="Self.fk_vrs_supplier_has_vrs_tire_vrs_supplier1">
+            <End Role="vrs_supplier" EntitySet="vrs_supplier" />
+            <End Role="vrs_supplier_tire" EntitySet="vrs_supplier_tire" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_supplier_has_vrs_tire_vrs_tire1" Association="Self.fk_vrs_supplier_has_vrs_tire_vrs_tire1">
+            <End Role="vrs_tire" EntitySet="vrs_tire" />
+            <End Role="vrs_supplier_tire" EntitySet="vrs_supplier_tire" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_task_has_vrs_spare_part_vrs_task1" Association="Self.fk_vrs_task_has_vrs_spare_part_vrs_task1">
+            <End Role="vrs_task" EntitySet="vrs_task" />
+            <End Role="vrs_task_spare_part" EntitySet="vrs_task_spare_part" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_tire1" Association="Self.fk_vrs_tire_has_vrs_vehicle_vrs_tire1">
+            <End Role="vrs_tire" EntitySet="vrs_tire" />
+            <End Role="vrs_vehicle_tire" EntitySet="vrs_vehicle_tire" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" Association="Self.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_vehicle_tire" EntitySet="vrs_vehicle_tire" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vrs_vehicle_image_vrs_vehicle1" Association="Self.fk_vrs_vehicle_image_vrs_vehicle1">
+            <End Role="vrs_vehicle" EntitySet="vrs_vehicle" />
+            <End Role="vrs_vehicle_image" EntitySet="vrs_vehicle_image" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VehicleDbModelStoreContainer" CdmEntityContainer="VehicleDbEntities">
+        <EntityContainerMapping StorageEntityContainer="VehicleDBModelStoreContainer" CdmEntityContainer="VehicleDbEntities">
           <EntitySetMapping Name="vrs_drive">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_drive">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_drive">
               <MappingFragment StoreEntitySet="vrs_drive">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="START_DATE_TIME" ColumnName="START_DATE_TIME" />
@@ -1576,7 +1576,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_driver">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_driver">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_driver">
               <MappingFragment StoreEntitySet="vrs_driver">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
@@ -1603,7 +1603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_expense">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_expense">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_expense">
               <MappingFragment StoreEntitySet="vrs_expense">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
@@ -1619,7 +1619,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_fuel">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_fuel">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_fuel">
               <MappingFragment StoreEntitySet="vrs_fuel">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
@@ -1637,7 +1637,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_insurance">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_insurance">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_insurance">
               <MappingFragment StoreEntitySet="vrs_insurance">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="POLICY_NUMBER" ColumnName="POLICY_NUMBER" />
@@ -1659,7 +1659,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_license">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_license">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_license">
               <MappingFragment StoreEntitySet="vrs_license">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LICENSE_NUMBER" ColumnName="LICENSE_NUMBER" />
@@ -1689,7 +1689,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_maintenance">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_maintenance">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_maintenance">
               <MappingFragment StoreEntitySet="vrs_maintenance">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="METER_READING" ColumnName="METER_READING" />
@@ -1708,7 +1708,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_maintenance_task">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_maintenance_task">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_maintenance_task">
               <MappingFragment StoreEntitySet="vrs_maintenance_task">
                 <ScalarProperty Name="vrs_maintenance_ID" ColumnName="vrs_maintenance_ID" />
                 <ScalarProperty Name="vrs_task_ID" ColumnName="vrs_task_ID" />
@@ -1721,7 +1721,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_place">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_place">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_place">
               <MappingFragment StoreEntitySet="vrs_place">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ARRIVAL_DATE_TIME" ColumnName="ARRIVAL_DATE_TIME" />
@@ -1738,7 +1738,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_repair">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_repair">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_repair">
               <MappingFragment StoreEntitySet="vrs_repair">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DATE_TIME" ColumnName="DATE_TIME" />
@@ -1756,7 +1756,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_repair_spare_part">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_repair_spare_part">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_repair_spare_part">
               <MappingFragment StoreEntitySet="vrs_repair_spare_part">
                 <ScalarProperty Name="vrs_repair_ID" ColumnName="vrs_repair_ID" />
                 <ScalarProperty Name="vrs_spare_part_ID" ColumnName="vrs_spare_part_ID" />
@@ -1771,7 +1771,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_spare_part">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_spare_part">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_spare_part">
               <MappingFragment StoreEntitySet="vrs_spare_part">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="PART_NUMBER" ColumnName="PART_NUMBER" />
@@ -1790,7 +1790,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_supplier">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_supplier">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_supplier">
               <MappingFragment StoreEntitySet="vrs_supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -1807,7 +1807,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_supplier_spare_part">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_supplier_spare_part">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_supplier_spare_part">
               <MappingFragment StoreEntitySet="vrs_supplier_spare_part">
                 <ScalarProperty Name="vrs_supplier_ID" ColumnName="vrs_supplier_ID" />
                 <ScalarProperty Name="vrs_spare_part_ID" ColumnName="vrs_spare_part_ID" />
@@ -1822,7 +1822,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_supplier_tire">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_supplier_tire">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_supplier_tire">
               <MappingFragment StoreEntitySet="vrs_supplier_tire">
                 <ScalarProperty Name="vrs_supplier_ID" ColumnName="vrs_supplier_ID" />
                 <ScalarProperty Name="vrs_tire_ID" ColumnName="vrs_tire_ID" />
@@ -1837,7 +1837,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_task">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_task">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_task">
               <MappingFragment StoreEntitySet="vrs_task">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -1851,7 +1851,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_task_spare_part">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_task_spare_part">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_task_spare_part">
               <MappingFragment StoreEntitySet="vrs_task_spare_part">
                 <ScalarProperty Name="vrs_task_ID" ColumnName="vrs_task_ID" />
                 <ScalarProperty Name="vrs_spare_part_ID" ColumnName="vrs_spare_part_ID" />
@@ -1864,7 +1864,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_tire">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_tire">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_tire">
               <MappingFragment StoreEntitySet="vrs_tire">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BRAND" ColumnName="BRAND" />
@@ -1883,7 +1883,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_vehicle">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_vehicle">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_vehicle">
               <MappingFragment StoreEntitySet="vrs_vehicle">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="REGISTRATION_NUMBER" ColumnName="REGISTRATION_NUMBER" />
@@ -1909,7 +1909,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_vehicle_image">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_vehicle_image">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_vehicle_image">
               <MappingFragment StoreEntitySet="vrs_vehicle_image">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
@@ -1925,7 +1925,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vrs_vehicle_tire">
-            <EntityTypeMapping TypeName="VehicleDbModel.vrs_vehicle_tire">
+            <EntityTypeMapping TypeName="VehicleDBModel.vrs_vehicle_tire">
               <MappingFragment StoreEntitySet="vrs_vehicle_tire">
                 <ScalarProperty Name="vrs_tire_ID" ColumnName="vrs_tire_ID" />
                 <ScalarProperty Name="vrs_vehicle_ID" ColumnName="vrs_vehicle_ID" />
@@ -1955,8 +1955,9 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

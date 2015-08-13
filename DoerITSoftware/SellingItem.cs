@@ -15,7 +15,7 @@ namespace DoerITSoftware
     public partial class SellingItem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Item()
+        public SellingItem()
         {
             this.ReturnedDetails = new HashSet<ReturnedDetails>();
             this.WarrantyDetails = new HashSet<WarrantyDetails>();

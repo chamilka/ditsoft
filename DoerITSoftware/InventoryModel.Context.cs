@@ -25,19 +25,19 @@ namespace DoerITSoftware
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<batch> batches { get; set; }
-        public virtual DbSet<batch_vs_items> batch_vs_items { get; set; }
-        public virtual DbSet<customer> customers { get; set; }
-        public virtual DbSet<invoice> invoices { get; set; }
-        public virtual DbSet<item_category> item_category { get; set; }
-        public virtual DbSet<item_image> item_image { get; set; }
-        public virtual DbSet<order> orders { get; set; }
-        public virtual DbSet<payment> payments { get; set; }
-        public virtual DbSet<returned_details> returned_details { get; set; }
-        public virtual DbSet<selling_item> selling_item { get; set; }
-        public virtual DbSet<invstaff> invstaffs { get; set; }
-        public virtual DbSet<Invsupplier> Invsuppliers { get; set; }
-        public virtual DbSet<supplier_payment> supplier_payment { get; set; }
-        public virtual DbSet<warranty_details> warranty_details { get; set; }
+        public virtual DbSet<Batch> Batch { get; set; }
+        public virtual DbSet<BatchVsItems> BatchVsItems { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Invoice> Invoice { get; set; }
+        public virtual DbSet<ItemCategory> ItemCategory { get; set; }
+        public virtual DbSet<ItemImage> ItemImage { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
+        public virtual DbSet<ReturnedDetails> ReturnedDetails { get; set; }
+        public virtual DbSet<SellingItem> SellingItem { get; set; }
+        public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<Supplier> Supplier { get; set; }
+        public virtual DbSet<SupplierPayment> SupplierPayment { get; set; }
+        public virtual DbSet<WarrantyDetails> WarrantyDetails { get; set; }
     }
 }

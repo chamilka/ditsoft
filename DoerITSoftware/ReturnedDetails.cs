@@ -15,7 +15,7 @@ namespace DoerITSoftware
     public partial class ReturnedDetails
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Details()
+        public ReturnedDetails()
         {
             this.ItemImage = new HashSet<ItemImage>();
         }

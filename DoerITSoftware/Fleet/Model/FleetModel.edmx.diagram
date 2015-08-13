@@ -4,50 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fe5cde606c264ba786fd32087544eadc" Name="Diagram1" ZoomLevel="67">
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_drive" Width="1.5" PointX="6" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_driver" Width="1.5" PointX="3.625" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_expense" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_fuel" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_insurance" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_license" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_maintenance" Width="1.5" PointX="3" PointY="32.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_maintenance_task" Width="1.5" PointX="5.25" PointY="33.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_place" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_repair" Width="1.5" PointX="3" PointY="37.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_repair_spare_part" Width="1.5" PointX="5.25" PointY="37.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_spare_part" Width="1.5" PointX="3" PointY="50.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_supplier" Width="1.5" PointX="3" PointY="55.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_supplier_spare_part" Width="1.5" PointX="5.25" PointY="50.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_supplier_tire" Width="1.5" PointX="8" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_task" Width="1.5" PointX="3" PointY="46.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_task_spare_part" Width="1.5" PointX="5.25" PointY="46.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_tire" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_vehicle" Width="1.5" PointX="0.75" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_vehicle_image" Width="1.5" PointX="3" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VehicleDbModel.vrs_vehicle_tire" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_drive_vrs_driver1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_drive_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_place_vrs_drive1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_expense_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_fuel_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_insurance_vrs_vehicle" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_license_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_service_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_maintenance_has_vrs_task_vrs_task1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_repair1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_repair_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_supplier1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_supplier_has_vrs_tire_vrs_tire1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_task_has_vrs_spare_part_vrs_task1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_tire1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" ManuallyRouted="false" />
-        <AssociationConnector Association="VehicleDbModel.fk_vrs_vehicle_image_vrs_vehicle1" ManuallyRouted="false" />
+      <Diagram DiagramId="561b089b6f1945c8a685300dfc9625ef" Name="Diagram1">
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_drive" Width="1.5" PointX="6" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_driver" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_expense" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_fuel" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_insurance" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_license" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_maintenance" Width="1.5" PointX="3" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_maintenance_task" Width="1.5" PointX="5.25" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_place" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_repair" Width="1.5" PointX="3" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_repair_spare_part" Width="1.5" PointX="5.25" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_spare_part" Width="1.5" PointX="3" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_supplier" Width="1.5" PointX="3" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_supplier_spare_part" Width="1.5" PointX="5.25" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_supplier_tire" Width="1.5" PointX="8" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_task" Width="1.5" PointX="3" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_task_spare_part" Width="1.5" PointX="5.25" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_tire" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_vehicle" Width="1.5" PointX="0.75" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_vehicle_image" Width="1.5" PointX="3" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VehicleDBModel.vrs_vehicle_tire" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_drive_vrs_driver1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_drive_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_place_vrs_drive1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_expense_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_fuel_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_insurance_vrs_vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_license_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_maintenance_has_vrs_task_vrs_maintenance1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_service_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_maintenance_has_vrs_task_vrs_task1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_repair_has_vrs_spare_part_vrs_repair1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_repair_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_repair_has_vrs_spare_part_vrs_spare_part1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_supplier_has_vrs_spare_part_vrs_spare_part1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_task_has_vrs_spare_part_vrs_spare_part1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_supplier_has_vrs_spare_part_vrs_supplier1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_supplier_has_vrs_tire_vrs_supplier1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_supplier_has_vrs_tire_vrs_tire1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_task_has_vrs_spare_part_vrs_task1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_tire_has_vrs_vehicle_vrs_tire1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_tire_has_vrs_vehicle_vrs_vehicle1" ManuallyRouted="false" />
+        <AssociationConnector Association="VehicleDBModel.fk_vrs_vehicle_image_vrs_vehicle1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

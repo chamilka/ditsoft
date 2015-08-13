@@ -15,7 +15,7 @@ namespace DoerITSoftware
     public partial class BatchVsItems
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VsItems()
+        public BatchVsItems()
         {
             this.SellingItem = new HashSet<SellingItem>();
             this.ItemImage = new HashSet<ItemImage>();

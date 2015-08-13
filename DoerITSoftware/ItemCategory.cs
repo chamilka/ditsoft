@@ -15,10 +15,10 @@ namespace DoerITSoftware
     public partial class ItemCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
+        public ItemCategory()
         {
             this.BatchVsItems = new HashSet<BatchVsItems>();
-            this.Suppliers = new HashSet<Invsupplier>();
+            this.Suppliers = new HashSet<Supplier>();
         }
     
         public string Id { get; set; }
@@ -35,6 +35,6 @@ namespace DoerITSoftware
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BatchVsItems> BatchVsItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invsupplier> Suppliers { get; set; }
+        public virtual ICollection<Supplier> Suppliers { get; set; }
     }
 }
