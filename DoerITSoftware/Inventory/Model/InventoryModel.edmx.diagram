@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="485c459a46c14bc9b665c1647045695c" Name="Diagram1">
+        <EntityTypeShape EntityType="inventory_dbModel.batch" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.batch_vs_items" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.batch_vs_items_has_order" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.customer" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.i_staff" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.invoice" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.item_category" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.item_image" Width="1.5" PointX="15" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.item_sub_category" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.order" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.payment" Width="1.5" PointX="10.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.returned_details" Width="1.5" PointX="12.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.selling_item" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.supplier" Width="1.5" PointX="0.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.supplier_has_item_category" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.supplier_payment" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventory_dbModel.warranty_details" Width="1.5" PointX="12.75" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_supplier1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_vs_items_batch1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_supplier_payment_batch1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_vs_items_batch_vs_items1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_vs_items_has_order_batch_vs_items1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_vs_items_item_category1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_vs_items_item_sub_category1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_item_batch_vs_items1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_item_image_batch_vs_items1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_batch_vs_items_has_order_order1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_invoice_customer1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_order_customer1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_invoice_staff1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_payments_invoice1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_selling_item_invoice1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_item_sub_category_item_category1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_supplier_has_item_category_item_category1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_item_image_returned_details1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_returned_details_item1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_warranty_details_item1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventory_dbModel.fk_supplier_has_item_category_supplier1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
