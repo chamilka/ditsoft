@@ -12,16 +12,25 @@ namespace WpfApplication1.Inventory.Model
     using DoerITSoftware.Core.Inventory.Interfaces;
     using System;
     using System.Collections.Generic;
-    
-    public partial class Payment : IPayment
+
+    public partial class SellingItem : ISellingItem
     {
+        public SellingItem()
+        {
+            this.ReturnedDetails = new HashSet<ReturnedDetails>();
+            this.WarrantyDetails = new HashSet<WarrantyDetails>();
+        }
+    
         public string Id { get; set; }
+        public string BatchVsItemsId { get; set; }
         public string InvoiceId { get; set; }
-        public string PaymentNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
-        public string Method { get; set; }
-        public Nullable<sbyte> PaymentStatus { get; set; }
+        public string QrCode { get; set; }
+        public string SerialNo { get; set; }
+        public Nullable<double> Price { get; set; }
+        public Nullable<double> Discount { get; set; }
+        public Nullable<double> SoldPrice { get; set; }
+        public Nullable<int> ReturnStatus { get; set; }
+        public string ReturnComment { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -31,6 +40,9 @@ namespace WpfApplication1.Inventory.Model
         public Nullable<sbyte> Status { get; set; }
         public sbyte IsDeleted { get; set; }
     
+        public virtual BatchVsItems BatchVsItems { get; set; }
         public virtual Invoice Invoice { get; set; }
+        public virtual ICollection<ReturnedDetails> ReturnedDetails { get; set; }
+        public virtual ICollection<WarrantyDetails> WarrantyDetails { get; set; }
     }
 }

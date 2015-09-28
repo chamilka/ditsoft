@@ -12,16 +12,11 @@ namespace WpfApplication1.Inventory.Model
     using DoerITSoftware.Core.Inventory.Interfaces;
     using System;
     using System.Collections.Generic;
-    
-    public partial class Payment : IPayment
+
+    public partial class SupplierHasItemCategory : ISupplierHasItemCategory
     {
-        public string Id { get; set; }
-        public string InvoiceId { get; set; }
-        public string PaymentNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
-        public string Method { get; set; }
-        public Nullable<sbyte> PaymentStatus { get; set; }
+        public string SupplierId { get; set; }
+        public string ItemCategoryId { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -30,7 +25,9 @@ namespace WpfApplication1.Inventory.Model
         public string Remark { get; set; }
         public Nullable<sbyte> Status { get; set; }
         public sbyte IsDeleted { get; set; }
+        public string Id { get; set; }
     
-        public virtual Invoice Invoice { get; set; }
+        public virtual ItemCategory ItemCategory { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

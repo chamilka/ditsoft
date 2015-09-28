@@ -13,21 +13,30 @@ namespace WpfApplication1.Inventory.Model
     using System;
     using System.Collections.Generic;
 
-    public partial class Batch : IBatch
+    public partial class BatchVsItems : IBatchVsItems
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Batch()
+        public BatchVsItems()
         {
-            this.BatchVsItems = new HashSet<BatchVsItems>();
-            this.SupplierPayment = new HashSet<SupplierPayment>();
+            this.BatchVsItemsHasOrder = new HashSet<BatchVsItemsHasOrder>();
+            this.SellingItem = new HashSet<SellingItem>();
+            this.ItemImage = new HashSet<ItemImage>();
         }
     
         public string Id { get; set; }
-        public string SupplierId { get; set; }
-        public string BatchName { get; set; }
-        public Nullable<long> NoType { get; set; }
-        public Nullable<double> TotalAmount { get; set; }
-        public Nullable<sbyte> PaymentStatus { get; set; }
+        public string BatchId { get; set; }
+        public string ItemCategoryId { get; set; }
+        public string ItemSubCategoryId { get; set; }
+        public string Manufacturer { get; set; }
+        public string Country { get; set; }
+        public string Model { get; set; }
+        public Nullable<int> Qty { get; set; }
+        public string Unit { get; set; }
+        public Nullable<double> UnitCost { get; set; }
+        public Nullable<double> UnitPrice { get; set; }
+        public string Type { get; set; }
+        public string Defects { get; set; }
+        public string WarrantyPeriod { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -37,10 +46,14 @@ namespace WpfApplication1.Inventory.Model
         public Nullable<sbyte> Status { get; set; }
         public sbyte IsDeleted { get; set; }
     
-        public virtual Supplier Supplier { get; set; }
+        public virtual Batch Batch { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BatchVsItems> BatchVsItems { get; set; }
+        public virtual ICollection<BatchVsItemsHasOrder> BatchVsItemsHasOrder { get; set; }
+        public virtual ItemCategory ItemCategory { get; set; }
+        public virtual ItemSubCategory ItemSubCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SupplierPayment> SupplierPayment { get; set; }
+        public virtual ICollection<SellingItem> SellingItem { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemImage> ItemImage { get; set; }
     }
 }

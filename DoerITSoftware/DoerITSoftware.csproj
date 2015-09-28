@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -55,28 +56,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Inventory\Interfaces\ICustomer.cs" />
+    <Compile Include="Core\Inventory\Interfaces\IBatchVsItemsHasOrder.cs" />
+    <Compile Include="Core\Inventory\Interfaces\IBatch.cs" />
+    <Compile Include="Core\Inventory\Interfaces\IBatchVsItems.cs" />
+    <Compile Include="Core\Inventory\Interfaces\IInventoryBaseEntity.cs" />
+    <Compile Include="Core\Inventory\Interfaces\ISupplier.cs" />
+    <Compile Include="Core\Inventory\Interfaces\ISupplierPayment.cs" />
+    <Compile Include="Core\Inventory\Service\InventoryGenericService.cs" />
     <Compile Include="Fleet\Model\FleetModel.Designer.cs">
       <DependentUpon>FleetModel.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ReturnedDetails.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SellingItem.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Staff.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Supplier.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SupplierPayment.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WarrantyDetails.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -85,38 +76,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Batch.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BatchVsItems.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Core\Fleet\BaseEntity.cs" />
-    <Compile Include="Core\Fleet\Drive.cs" />
-    <Compile Include="Core\Fleet\Driver.cs" />
-    <Compile Include="Core\Fleet\Expense.cs" />
-    <Compile Include="Core\Fleet\Fuel.cs" />
-    <Compile Include="Core\Fleet\Insurance.cs" />
-    <Compile Include="Core\Fleet\License.cs" />
-    <Compile Include="Core\Fleet\Maintenance.cs" />
-    <Compile Include="Core\Fleet\MaintenanceTask.cs" />
-    <Compile Include="Core\Fleet\Place.cs" />
-    <Compile Include="Core\Fleet\Repair.cs" />
-    <Compile Include="Core\Fleet\Service\GenericService.cs" />
-    <Compile Include="Core\Fleet\Service\VehicleService.cs" />
-    <Compile Include="Core\Fleet\SparePart.cs" />
-    <Compile Include="Core\Fleet\Supplier.cs" />
-    <Compile Include="Core\Fleet\SupplierSparePart.cs" />
-    <Compile Include="Core\Fleet\SupplierTire.cs" />
-    <Compile Include="Core\Fleet\Task.cs" />
-    <Compile Include="Core\Fleet\TaskSparePart.cs" />
-    <Compile Include="Core\Fleet\Tire.cs" />
-    <Compile Include="Core\Fleet\Vehicle.cs" />
-    <Compile Include="Core\Fleet\VehicleImage.cs" />
-    <Compile Include="Core\Fleet\VehicleTire.cs" />
-    <Compile Include="Customer.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Fleet\Model\Drive.cs">
       <DependentUpon>FleetModel.tt</DependentUpon>
@@ -191,28 +150,70 @@
     <Compile Include="Fleet\Model\VehicleTire.cs">
       <DependentUpon>FleetModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="InventoryModel.Context.cs">
+    <Compile Include="Inventory\Model\Batch.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\BatchVsItems.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\BatchVsItemsHasOrder.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\Customer.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\InventoryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>InventoryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\InventoryModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="InventoryModel.cs">
       <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\InventoryModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="InventoryModel.Designer.cs">
       <DependentUpon>InventoryModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Invoice.cs">
+    <Compile Include="Inventory\Model\Invoice.cs">
       <DependentUpon>InventoryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemCategory.cs">
+    <Compile Include="Inventory\Model\IStaff.cs">
       <DependentUpon>InventoryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemImage.cs">
+    <Compile Include="Inventory\Model\ItemCategory.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\ItemImage.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\ItemSubCategory.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\Order.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\Payment.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\ReturnedDetails.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\SellingItem.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\Supplier.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\SupplierHasItemCategory.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\SupplierPayment.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Model\WarrantyDetails.cs">
       <DependentUpon>InventoryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -221,12 +222,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Order.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Payment.cs">
-      <DependentUpon>InventoryModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -264,19 +259,19 @@
       <DependentUpon>FleetModel.edmx</DependentUpon>
       <LastGenOutput>FleetModel.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="InventoryModel.edmx">
+    <EntityDeploy Include="Inventory\Model\InventoryModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>InventoryModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="InventoryModel.Context.tt">
+    <None Include="Inventory\Model\InventoryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InventoryModel.edmx</DependentUpon>
       <LastGenOutput>InventoryModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="InventoryModel.edmx.diagram">
+    <None Include="Inventory\Model\InventoryModel.edmx.diagram">
       <DependentUpon>InventoryModel.edmx</DependentUpon>
     </None>
-    <None Include="InventoryModel.tt">
+    <None Include="Inventory\Model\InventoryModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InventoryModel.edmx</DependentUpon>
       <LastGenOutput>InventoryModel.cs</LastGenOutput>
@@ -300,6 +295,9 @@
     <Folder Include="Fleet\Service\" />
     <Folder Include="Fleet\ViewModel\" />
     <Folder Include="Fleet\View\" />
+    <Folder Include="Inventory\Service\" />
+    <Folder Include="Inventory\ViewModel\" />
+    <Folder Include="Inventory\View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

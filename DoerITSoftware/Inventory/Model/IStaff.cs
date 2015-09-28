@@ -13,15 +13,23 @@ namespace WpfApplication1.Inventory.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment : IPayment
+    public partial class IStaff : IIStaff
     {
+        public IStaff()
+        {
+            this.Invoices = new HashSet<Invoice>();
+        }
+    
         public string Id { get; set; }
-        public string InvoiceId { get; set; }
-        public string PaymentNo { get; set; }
-        public Nullable<double> Amount { get; set; }
-        public Nullable<System.DateTime> PaymentDate { get; set; }
-        public string Method { get; set; }
-        public Nullable<sbyte> PaymentStatus { get; set; }
+        public string EmployeeNo { get; set; }
+        public string StaffFname { get; set; }
+        public string StaffMname { get; set; }
+        public string StaffLname { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
+        public string Telephone { get; set; }
+        public string Telephone2 { get; set; }
+        public string Email { get; set; }
         public string InsertUser { get; set; }
         public string UpdateUser { get; set; }
         public Nullable<System.DateTime> InsertDateTime { get; set; }
@@ -31,6 +39,6 @@ namespace WpfApplication1.Inventory.Model
         public Nullable<sbyte> Status { get; set; }
         public sbyte IsDeleted { get; set; }
     
-        public virtual Invoice Invoice { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }
